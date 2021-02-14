@@ -20,6 +20,7 @@ var applyPhoto = Vue.component('apply-photo', ({
             this.crop.result({
                 type: 'base64',
                 
+                
             }).then((data) => this.$emit('cropped-img', data))
             this.$emit('show-modal-apply', false);
             this.$emit('page-number', 'gif-ready');

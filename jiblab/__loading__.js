@@ -1,7 +1,8 @@
 pc.script.createLoadingScreen(function (app) {
     var showSplash = function () {
+        /*
         // splash wrapper
-        /*var wrapper = document.createElement('div');
+        var wrapper = document.createElement('div');
         wrapper.id = 'application-splash-wrapper';
         document.body.appendChild(wrapper);
 
@@ -11,6 +12,12 @@ pc.script.createLoadingScreen(function (app) {
         wrapper.appendChild(splash);
         splash.style.display = 'none';
 
+        var logo = document.createElement('img');
+        logo.src = ASSET_PREFIX + 'logo.png';
+        splash.appendChild(logo);
+        logo.onload = function () {
+            splash.style.display = 'block';
+        };
 
         var container = document.createElement('div');
         container.id = 'progress-bar-container';
@@ -23,12 +30,14 @@ pc.script.createLoadingScreen(function (app) {
     };
 
     var hideSplash = function () {
-        /*var splash = document.getElementById('application-splash-wrapper');
+        /*
+        var splash = document.getElementById('application-splash-wrapper');
         splash.parentElement.removeChild(splash);*/
     };
 
     var setProgress = function (value) {
-        /*var bar = document.getElementById('progress-bar');
+        /*
+        var bar = document.getElementById('progress-bar');
         if (bar) {
             value = Math.min(1, Math.max(0, value));
             bar.style.width = value * 100 + '%';

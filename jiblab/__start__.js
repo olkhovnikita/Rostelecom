@@ -40,7 +40,7 @@
         css += "        margin: 0 auto;";
         css += "    }";
         css += "}";
-
+        
         // append css to style
         if (document.head.querySelector) {
             document.head.querySelector('style').innerHTML += css;

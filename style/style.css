@@ -174,7 +174,7 @@ footer {
 #gif {
     display: block;
     margin: 0 auto;
-    
+    max-width: 100%;
     border: none;
     outline: none;
     cursor: pointer;
@@ -227,6 +227,7 @@ footer {
     height: 1px;
     overflow: hidden;
 }
+
 .cr-resizer {
     border: none !important;
 }
@@ -405,6 +406,11 @@ footer {
     font-size: 31px;
 }
 
+.gif-container {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 @media (max-width: 1024px) {
     .make-a-gif, .congrats {
         font-size: 38px;
@@ -440,7 +446,6 @@ footer {
         display: block;
         text-align: center;
     }
-
     .place-face {
         font-size: 30px;
     }
@@ -504,7 +509,6 @@ footer {
         display: block;
         text-align: center;
     }
-
     .place-face {
         font-size: 20px;
     }

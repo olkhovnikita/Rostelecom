@@ -5,7 +5,7 @@ new Vue({
         'person': personalisation,
         'apply-photo': applyPhoto,
         'gif-ready': gifReady,
-        'my-header': myHeader
+        'my-header': myHeader,
     },
     el: '#content',
     data: {
@@ -14,6 +14,6 @@ new Vue({
         page: 'main-content',
         templateId: null,
         img: null,
-        croppedImg: ''
+        croppedImg: '',
     }
 })

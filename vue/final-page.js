@@ -1,14 +1,13 @@
-var gifReady = Vue.component('gif-ready', ({
+var finalPage = Vue.component('final-page', ({
     props: ['img'],
     template: `
     <div class='gif-ready-container'>
         <div class='gif-ready-header'>
-            <p class='select gif-ready-text'>Твоя GIF-открытка готова.<br>
-                Сохрани её и отправь коллеге</p>
+            <p class='select gif-ready-text'>Твоя GIF-открытка!</p>
         </div>
         <div class='gif-container'>
             <canvas id="gif"></canvas>
-        <button type='button' class='select-example-button make-another-btn' @click="$emit('page-number', 'final-page')">Создать еще одно GIF-поздравление</button>
+        <button type='button' class='select-example-button make-another-btn' @click="$emit('page-number', 'main-content')">Создать еще одно GIF-поздравление</button>
         </div>
     </div>
     `,

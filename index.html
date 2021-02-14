@@ -20,7 +20,7 @@
             <my-header></my-header>
             <main-content v-if="page == 'main-content'" @page-number="page = $event"
                 @template-number="templateId = $event" :template="templateId"></main-content>
-            <person v-if="page == 'person'" @img='img=$event' @page-number="page = $event"
+            <person v-if="page == 'person'" :img-data='imgData' @img='img=$event' @page-number="page = $event"
                 @show-modal="showModal = $event" @show-modal-apply="showModalApply = $event" :template="templateId">
             </person>
             <no-photo v-if="showModal" @show-modal="showModal = $event" @page-number="page = $event"
@@ -33,6 +33,9 @@
 
             <gif-ready v-if="page == 'gif-ready'" :img='croppedImg' @page-number="page = $event" :template="templateId">
             </gif-ready>
+            <final-page v-if="page == 'final-page'" :img='croppedImg' @page-number="page = $event"
+                :template="templateId">
+            </final-page>
 
         </div>
         <footer>
@@ -46,6 +49,7 @@
         <script src="vue/no-photo.js"></script>
         <script src="vue/gif-ready.js"></script>
         <script src="vue/main.js"></script>
+        <script src="vue/final-page.js"></script>
 
 </body>
 

@@ -227,6 +227,9 @@ footer {
     height: 1px;
     overflow: hidden;
 }
+.cr-resizer {
+    border: none !important;
+}
 
 .max-length {
     font-family: 'MyriadProRegular';
@@ -437,6 +440,10 @@ footer {
         display: block;
         text-align: center;
     }
+
+    .place-face {
+        font-size: 30px;
+    }
     .gif-ready-download-btn {
         background-size: 24px;
         background-position-x: 15px;
@@ -496,6 +503,10 @@ footer {
         font-size: 24px;
         display: block;
         text-align: center;
+    }
+
+    .place-face {
+        font-size: 20px;
     }
     .modal-no-photo-header {
         padding: 0px 20px;

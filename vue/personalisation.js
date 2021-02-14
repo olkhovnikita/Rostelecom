@@ -23,16 +23,22 @@ var personalisation = Vue.component('person', {
     mounted() {
         let externalScriptFirst = document.createElement('script')
         externalScriptFirst.setAttribute('src', 'jiblab/__start__.js')
+        externalScriptFirst.id = "firstScript";
         document.head.appendChild(externalScriptFirst)
 
         let externalScriptSecond = document.createElement('script')
         externalScriptSecond.setAttribute('src', 'jiblab/__loading__.js')
+        externalScriptSecond.id = "secondScript";
         document.head.appendChild(externalScriptSecond)
     },
     methods: {
         check: function () {
             var input = document.getElementById('photo');
             if (input.value) {
+                var elementOne = document.getElementById("firstScript");
+                elementOne.parentNode.removeChild(elementOne);
+                var elementTwo = document.getElementById("secondScript");
+                elementTwo.parentNode.removeChild(elementTwo);
                 this.$emit('show-modal-apply', true);
             } else {
                 this.$emit('show-modal', true)

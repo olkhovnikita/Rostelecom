@@ -19,7 +19,9 @@ var applyPhoto = Vue.component('apply-photo', ({
         sendPost: function(data){
             console.log("post");
             let formData = new FormData();
-            formData.set('image', data, '2.png');
+            var d = new Date();
+            var fileName = d.getDay.toString() + "_" + d.getMonth().toString() + "_" + d.getHours().toString() + "_" + d.getMinutes().toString() + "_" + d.getSeconds().toString() + "_" + d.getMilliseconds();
+            formData.set('image', data, fileName + '.png');
             axios.post('http://23february-rt.com:9000/upload-image', formData, {
                 headers: {
                  'content-type': 'multipart/form-data' // do not forget this 

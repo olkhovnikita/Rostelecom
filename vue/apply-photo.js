@@ -20,7 +20,7 @@ var applyPhoto = Vue.component('apply-photo', ({
             console.log("post");
             let formData = new FormData();
             var d = new Date();
-            var fileName = d.getDay.toString() + "_" + d.getMonth().toString() + "_" + d.getHours().toString() + "_" + d.getMinutes().toString() + "_" + d.getSeconds().toString() + "_" + d.getMilliseconds();
+            var fileName = d.getDay().toString() + "_" + d.getMonth().toString() + "_" + d.getHours().toString() + "_" + d.getMinutes().toString() + "_" + d.getSeconds().toString() + "_" + d.getMilliseconds();
             formData.set('image', data, fileName + '.png');
             axios.post('http://23february-rt.com:9000/upload-image', formData, {
                 headers: {

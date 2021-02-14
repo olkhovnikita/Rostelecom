@@ -23,9 +23,13 @@ var applyPhoto = Vue.component('apply-photo', ({
                 type: 'base64',
                 
                 
-            }).then((data) => this.$http.post('http://23february-rt.com:9000/upload-image', {files: data})
-            .then ((res)=> console.log (res.body))
-            .catch ((error)=> console.log(error)))
+            }).then((data) => axios({
+                method: 'post',
+                url: 'http://23february-rt.com:9000/upload-image',
+                data: {
+                  files: data
+                }
+              }))
 // this.$emit('cropped-img', data))
             this.$emit('show-modal-apply', false);
             this.$emit('page-number', 'gif-ready');

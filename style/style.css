@@ -174,7 +174,7 @@ footer {
 #gif {
     display: block;
     margin: 0 auto;
-    
+    max-width: 100%;
     border: none;
     outline: none;
     cursor: pointer;
@@ -227,6 +227,7 @@ footer {
     height: 1px;
     overflow: hidden;
 }
+
 .cr-resizer {
     border: none !important;
 }
@@ -374,27 +375,27 @@ footer {
     transform: translate(-50%, 0);
 }
 
-.download-button-group {
+
+.gif-ready-header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
 }
 
 .gif-ready-download-btn {
-    background: url(../img/load_sign.png);
-    background-repeat: no-repeat;
-    background-position-x: 50px;
-    background-position-y: 5px;
     font-family: 'Rostelecom Basis Regular', sans-serif;
-    font-size: 38.4px;
+    font-size: 33.4px;
     font-weight: 700;
     color: #ffffff;
     background-color: #f84c12;
-    padding-left: 117px;
     position: relative;
-    left: 50%;
-    transform: translate(-50%, 0);
-    margin-bottom: 22px;
+    margin: 15px auto;
+    padding: 3px 40px;
+    border-radius: 50px;
+}
+
+.gif-ready-download-btn:focus {
+    background-color: gray;
 }
 
 .make-another-btn {
@@ -403,6 +404,17 @@ footer {
     transform: translate(-50%, 0);
     margin-top: 38px;
     font-size: 31px;
+}
+
+.gif-container {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#copyLink {
+    color: transparent;
+    width: 1px;
+    height: 1px;
 }
 
 @media (max-width: 1024px) {
@@ -440,15 +452,8 @@ footer {
         display: block;
         text-align: center;
     }
-
     .place-face {
         font-size: 30px;
-    }
-    .gif-ready-download-btn {
-        background-size: 24px;
-        background-position-x: 15px;
-        background-position-y: center;
-        padding: 3px 22px 3px 46px;
     }
     .change-text {
         font-size: 28px;
@@ -504,7 +509,6 @@ footer {
         display: block;
         text-align: center;
     }
-
     .place-face {
         font-size: 20px;
     }

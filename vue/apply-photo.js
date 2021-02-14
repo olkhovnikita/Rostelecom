@@ -28,7 +28,7 @@ var applyPhoto = Vue.component('apply-photo', ({
 
         getCroppedImage: function () {
             this.crop.result({
-                type: 'base64',
+                type: 'blob',
             }).then((data) => this.sendPost(data)          
             )
 // this.$emit('cropped-img', data))

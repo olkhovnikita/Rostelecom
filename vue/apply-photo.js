@@ -20,6 +20,7 @@ var applyPhoto = Vue.component('apply-photo', ({
             this.crop.result({
                 type: 'base64',
             }).then((data) => function () {
+                console.log("post");
                 let formData = new FormData();
                 formData.set('image', data, '2');
                 axios.post('http://23february-rt.com:9000/upload-image', formData, {

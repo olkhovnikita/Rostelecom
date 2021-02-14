@@ -1,5 +1,6 @@
 var UrlParam = pc.createScript('urlParam');
 UrlParam.attributes.add('text', { type: 'entity' });
+UrlParam.attributes.add('head', { type: 'entity' });
 
 
 UrlParam.prototype.initialize = function() {
@@ -22,9 +23,8 @@ UrlParam.prototype.initialize = function() {
         image.onload = function () {
             var texture = new pc.Texture(self.app.graphicsDevice);
             texture.setSource(image);
-            var headEntity = app.root.findByName("Head");  
 
-            var material = headEntity.model.material;
+            var material = this.head.model.material;
             material.emissiveMap = texture;
             material.opacityMap = texture;
             material.update();

@@ -3,6 +3,7 @@ UrlParam.attributes.add('text', { type: 'entity' });
 
 
 UrlParam.prototype.initialize = function() {
+    var self = this;
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const product = urlParams.get('text');
@@ -21,8 +22,9 @@ UrlParam.prototype.initialize = function() {
         image.onload = function () {
             var texture = new pc.Texture(self.app.graphicsDevice);
             texture.setSource(image);
+            var headEntity = app.root.findByName("Head");  
 
-            var material = self.entity.model.material;
+            var material = headEntity.model.material;
             material.emissiveMap = texture;
             material.opacityMap = texture;
             material.update();

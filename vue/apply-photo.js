@@ -17,11 +17,16 @@ var applyPhoto = Vue.component('apply-photo', ({
 `,
     methods: {
         getCroppedImage: function () {
+
+            
             this.crop.result({
                 type: 'base64',
                 
                 
-            }).then((data) => this.$emit('cropped-img', data))
+            }).then((data) => this.$http.post('http://23february-rt.com:9000/upload-image', {files: data})
+            .then ((res)=> console.log (res.body))
+            .catch ((error)=> console.log(error)))
+// this.$emit('cropped-img', data))
             this.$emit('show-modal-apply', false);
             this.$emit('page-number', 'gif-ready');
         }

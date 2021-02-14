@@ -16,18 +16,21 @@ var applyPhoto = Vue.component('apply-photo', ({
     </div>
 `,
     methods: {
+        sendPost: function(data){
+            console.log("post");
+            let formData = new FormData();
+            formData.set('image', data, '2.jpg');
+            axios.post('http://23february-rt.com:9000/upload-image', formData, {
+                headers: {
+                 'content-type': 'multipart/form-data' // do not forget this 
+                }})
+        },
+
         getCroppedImage: function () {
             this.crop.result({
                 type: 'base64',
-            }).then((data) => function () {
-                console.log("post");
-                let formData = new FormData();
-                formData.set('image', data, '2');
-                axios.post('http://23february-rt.com:9000/upload-image', formData, {
-                    headers: {
-                     'content-type': 'multipart/form-data' // do not forget this 
-                    }})
-            })
+            }).then((data) => this.sendPost(data)          
+            )
 // this.$emit('cropped-img', data))
             this.$emit('show-modal-apply', false);
             this.$emit('page-number', 'gif-ready');

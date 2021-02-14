@@ -15,11 +15,11 @@ var gifReady = Vue.component('gif-ready', ({
     </div>
     `,
     mounted() {
-        /*
+        
         let externalScriptFirst = document.createElement('script')
         externalScriptFirst.setAttribute('src', 'jiblab/__start__.js')
         document.head.appendChild(externalScriptFirst)
-
+/*
         let externalScriptSecond = document.createElement('script')
         externalScriptSecond.setAttribute('src', 'jiblab/__loading__.js')
         document.head.appendChild(externalScriptSecond)*/

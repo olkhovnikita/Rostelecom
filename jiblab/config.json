@@ -160,7 +160,7 @@
                 "filename": "video-texture.js",
                 "size": 2583,
                 "hash": "0387d1f0e01ed907b8eeaa476e5e6416",
-                "url": "files/assets/42269538/1/video-texture.js"
+                "url": "jiblab/files/assets/42269538/1/video-texture.js"
             },
             "region": "eu-west-1",
             "i18n": {},
@@ -203,7 +203,7 @@
                 "filename": "tv-screen.js",
                 "size": 718,
                 "hash": "3031c3ef416db0c771002c4103d6e85a",
-                "url": "files/assets/42269545/1/tv-screen.js"
+                "url": "jiblab/files/assets/42269545/1/tv-screen.js"
             },
             "region": "eu-west-1",
             "i18n": {},
@@ -475,7 +475,7 @@
                 "filename": "buttonClick.js",
                 "size": 741,
                 "hash": "3bc3711ffd8f1e2d1f58d75612b49e7a",
-                "url": "files/assets/42289642/1/buttonClick.js"
+                "url": "jiblab/files/assets/42289642/1/buttonClick.js"
             },
             "region": "eu-west-1",
             "i18n": {},
@@ -523,7 +523,7 @@
                 "size": 340310,
                 "hash": "1e90167099e34abaabd7d373b2df6c08",
                 "variants": {},
-                "url": "files/assets/42386487/1/head.png"
+                "url": "jiblab/files/assets/42386487/1/head.png"
             },
             "region": "eu-west-1",
             "i18n": {},
@@ -810,7 +810,7 @@
                 "size": 30349,
                 "hash": "2411b9b9fd954586186478e545373881",
                 "variants": {},
-                "url": "files/assets/42387133/1/play.png"
+                "url": "jiblab/files/assets/42387133/1/play.png"
             },
             "region": "eu-west-1",
             "i18n": {},
@@ -858,7 +858,7 @@
                 "size": 2352765,
                 "hash": "070d1082a3da0c65d05e5cdda7bfa8c9",
                 "variants": {},
-                "url": "files/assets/42387201/1/stadBG.png"
+                "url": "jiblab/files/assets/42387201/1/stadBG.png"
             },
             "region": "eu-west-1",
             "i18n": {},
@@ -876,7 +876,7 @@
                 "filename": "stad.mp4",
                 "size": 590118,
                 "hash": "b7ab6246f610045600e425a4f2868c3b",
-                "url": "files/assets/42387209/1/stad.mp4"
+                "url": "jiblab/files/assets/42387209/1/stad.mp4"
             },
             "region": "eu-west-1",
             "i18n": {},
@@ -1098,7 +1098,7 @@
                 "filename": "timeline.js",
                 "size": 7166,
                 "hash": "fb6c7869c1d6691576b38acfee37ec22",
-                "url": "files/assets/42394175/1/timeline.js"
+                "url": "jiblab/files/assets/42394175/1/timeline.js"
             },
             "region": "eu-west-1",
             "i18n": {},
@@ -1121,7 +1121,7 @@
                 "filename": "tween.js",
                 "size": 20148,
                 "hash": "7ffcaec87239ca09cf10d5af7184aea3",
-                "url": "files/assets/42394183/1/tween.js"
+                "url": "jiblab/files/assets/42394183/1/tween.js"
             },
             "region": "eu-west-1",
             "i18n": {},
@@ -4330,7 +4330,7 @@
                 "filename": "18112.png",
                 "hash": "1ab19c890dbbc138f17b5759aa2ba2f8",
                 "size": 178311,
-                "url": "files/assets/42410388/1/18112.png"
+                "url": "jiblab/files/assets/42410388/1/18112.png"
             },
             "region": "eu-west-1",
             "i18n": {},
@@ -4348,7 +4348,7 @@
                 "filename": "rocket.mp4",
                 "size": 1434109,
                 "hash": "43cad1d0585cf9b1b761b21353bbf47c",
-                "url": "files/assets/42440524/1/rocket.mp4"
+                "url": "jiblab/files/assets/42440524/1/rocket.mp4"
             },
             "region": "eu-west-1",
             "i18n": {},
@@ -4366,7 +4366,7 @@
                 "filename": "star.mp4",
                 "size": 2878730,
                 "hash": "c0df2e6fbd1244275a67f1f90a742f58",
-                "url": "files/assets/42440525/1/star.mp4"
+                "url": "jiblab/files/assets/42440525/1/star.mp4"
             },
             "region": "eu-west-1",
             "i18n": {},
@@ -4384,7 +4384,7 @@
                 "filename": "beach.mp4",
                 "size": 1731901,
                 "hash": "e289a414a7d937d4795e6e8075baafc4",
-                "url": "files/assets/42440526/1/beach.mp4"
+                "url": "jiblab/files/assets/42440526/1/beach.mp4"
             },
             "region": "eu-west-1",
             "i18n": {},
@@ -4402,7 +4402,7 @@
                 "filename": "city.mp4",
                 "size": 2802243,
                 "hash": "95c7b87e765892e6d02f2b297c49609a",
-                "url": "files/assets/42440527/1/city.mp4"
+                "url": "jiblab/files/assets/42440527/1/city.mp4"
             },
             "region": "eu-west-1",
             "i18n": {},
@@ -4450,7 +4450,7 @@
                 "size": 1447560,
                 "hash": "ae2a3b00f1d4f91f2ff9d20e9f4d0b65",
                 "variants": {},
-                "url": "files/assets/42441272/1/rocket_00000.png"
+                "url": "jiblab/files/assets/42441272/1/rocket_00000.png"
             },
             "region": "eu-west-1",
             "i18n": {},
@@ -4498,7 +4498,7 @@
                 "size": 959675,
                 "hash": "07896760c84f717affec9d7932b7f817",
                 "variants": {},
-                "url": "files/assets/42441273/1/star_00000.png"
+                "url": "jiblab/files/assets/42441273/1/star_00000.png"
             },
             "region": "eu-west-1",
             "i18n": {},
@@ -4546,7 +4546,7 @@
                 "size": 1168104,
                 "hash": "a4e1c8523e33e8f1a1537af66f7179a9",
                 "variants": {},
-                "url": "files/assets/42441274/1/beach_00000.png"
+                "url": "jiblab/files/assets/42441274/1/beach_00000.png"
             },
             "region": "eu-west-1",
             "i18n": {},
@@ -4594,7 +4594,7 @@
                 "size": 1735003,
                 "hash": "77f6307265f52e03591296b22dc4d2f1",
                 "variants": {},
-                "url": "files/assets/42441275/1/city_00042.png"
+                "url": "jiblab/files/assets/42441275/1/city_00042.png"
             },
             "region": "eu-west-1",
             "i18n": {},
@@ -5583,7 +5583,7 @@
                 "filename": "urlParam.js",
                 "size": 333,
                 "hash": "04a01d9ea4f2ce795809f8c35651b908",
-                "url": "files/assets/42463320/1/urlParam.js"
+                "url": "jiblab/files/assets/42463320/1/urlParam.js"
             },
             "region": "eu-west-1",
             "i18n": {},

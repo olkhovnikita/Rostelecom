@@ -1,0 +1,545 @@
+@font-face {
+    font-family: "Rostelecom Basis Regular";
+    src: url("../fonts/Rostelecom/82fe5070fde20170ec8414053d0f340d.eot");
+    /* IE9*/
+    src: url("../fonts/Rostelecom/82fe5070fde20170ec8414053d0f340d.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/Rostelecom/82fe5070fde20170ec8414053d0f340d.woff2") format("woff2"), /* chrome、firefox */
+    url("../fonts/Rostelecom/82fe5070fde20170ec8414053d0f340d.woff") format("woff"), /* chrome、firefox */
+    url("../fonts/Rostelecom/82fe5070fde20170ec8414053d0f340d.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url("../fonts/Rostelecom/82fe5070fde20170ec8414053d0f340d.svg#Rostelecom Basis Regular") format("svg");
+    /* iOS 4.1- */
+}
+
+@font-face {
+    font-family: "MyriadProRegular";
+    src: url("../fonts/MyriadProRegular/MyriadProRegular.eot");
+    src: url("../fonts/MyriadProRegular/MyriadProRegular.eot?#iefix")format("embedded-opentype"), url("../fonts/MyriadProRegular/MyriadProRegular.woff") format("woff"), url("../fonts/MyriadProRegular/MyriadProRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    outline: none;
+}
+
+label {
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+body {
+    background: url('../img/background.jpg');
+    background-repeat: no-repeat;
+    background-position-y: top;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 50px auto;
+    padding: 0 16px;
+}
+
+.about-males {
+    max-width: 100%;
+}
+
+.information {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+footer {
+    position: relative;
+}
+
+.logo {
+    font-family: 'Rostelecom Basis Regular', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #ffffff;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.make-a-gif {
+    border-left: 4px solid #f84c12;
+    margin-top: 67px;
+    padding-top: 5px;
+    padding-left: 30px;
+    font-family: 'Rostelecom Basis Regular', sans-serif;
+    font-size: 54px;
+    font-weight: 700;
+    color: #f84c12;
+}
+
+.congrats {
+    font-family: 'Rostelecom Basis Regular', sans-serif;
+    font-size: 54px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.examples {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.example {
+    cursor: pointer;
+    position: relative;
+    width: 315px;
+    height: 177px;
+    margin: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.example.active::before {
+    position: absolute;
+    content: '';
+    background: rgba(214, 117, 88, 0.8);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    z-index: 1;
+}
+
+.select {
+    text-align: center;
+    margin-top: 94px;
+    margin-bottom: 20px;
+    font-family: 'Rostelecom Basis Regular', sans-serif;
+    font-size: 50.4px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.select-example-button {
+    font-family: 'Rostelecom Basis Regular', sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #f84c12;
+    border-radius: 50px;
+    padding: 10px 80px;
+    margin-top: 30px;
+}
+
+.select-example-button:disabled, .select-example-button[disabled=true] {
+    background-color: gray;
+}
+
+.select-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-page-2 {
+    max-width: 676px;
+    margin: 0 auto;
+}
+
+.personalise {
+    margin-top: -15px;
+}
+
+#gif {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.change-text {
+    display: flex;
+    align-content: flex-start;
+    font-size: 27.9px;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.form-text {
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.slogan {
+    border: 3px solid #f84c12;
+    border-radius: 10px;
+    padding: 17px 30px;
+    margin-right: 17px;
+    width: 383px;
+}
+
+.slogan, .slogan::placeholder {
+    font-family: 'Rostelecom Basis Regular', sans-serif;
+    font-size: 21.2px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #9e54e6;
+}
+
+.load-photo-button {
+    font-size: 27.9px;
+    padding: 12px 36px;
+}
+
+#photo {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.cr-resizer {
+    border: none !important;
+}
+
+.max-length {
+    font-family: 'MyriadProRegular';
+    font-size: 12px;
+    font-weight: 400;
+    color: #ffffff;
+    padding: 5px 0;
+    display: inline-block;
+}
+
+.make-a-gif-btn {
+    padding: 14px 184px;
+}
+
+.container-page-3 {
+    display: flex;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.modal {
+    width: 891px;
+    z-index: 5;
+    margin: auto;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.apply-face {
+    height: 468px;
+    cursor: pointer;
+    position: relative;
+    background: #ffffff;
+}
+
+.my-image {
+    object-fit: cover;
+    width: 100%;
+    background-position: center;
+    display: block;
+    height: 100%;
+}
+
+.modal-footer {
+    height: 185px;
+    background-color: #ffffff;
+}
+
+.place-face {
+    font-family: 'Rostelecom Basis Reguar', sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: #000000;
+    text-align: center;
+}
+
+.apply-face-btn {
+    padding: 15px 181px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.container-no-photo {
+    display: flex;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.modal-no-photo {
+    border-radius: 50px;
+    max-width: 1167px;
+    max-height: 100%;
+    z-index: 5;
+    margin: auto;
+    max-height: 100%;
+    overflow-y: auto;
+    background-color: #ffffff;
+    padding-bottom: 10px;
+}
+
+.modal-no-photo-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 58px 180px;
+}
+
+.modal-no-photo-text {
+    font-family: 'Rostelecom Basis Regular', sans-serif;
+    font-size: 50px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #8a12ff;
+}
+
+.modal-no-photo-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 134px;
+}
+
+.yes-button {
+    font-family: 'Rostelecom Basis Regular', sans-serif;
+    font-size: 38.4px;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #8a12ff;
+    padding: 21px 90px;
+    border-radius: 50px;
+}
+
+.back-button {
+    font-family: 'Rostelecom Basis Regular', sans-serif;
+    font-size: 38.4px;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #f84c12;
+    border-radius: 50px;
+    padding: 21px 36px;
+}
+
+.gif-ready-text {
+    margin: 0 auto;
+}
+
+.gif-ready-example {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.download-button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gif-ready-download-btn {
+    background: url(../img/load_sign.png);
+    background-repeat: no-repeat;
+    background-position-x: 50px;
+    background-position-y: 5px;
+    font-family: 'Rostelecom Basis Regular', sans-serif;
+    font-size: 38.4px;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #f84c12;
+    padding-left: 117px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-bottom: 22px;
+}
+
+.make-another-btn {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-top: 38px;
+    font-size: 31px;
+}
+
+@media (max-width: 1024px) {
+    .make-a-gif, .congrats {
+        font-size: 38px;
+    }
+    .logo {
+        padding-top: 10px;
+    }
+    .select {
+        font-size: 28px;
+    }
+    .slogan, .slogan::placeholder {
+        font-size: 16px;
+        padding: 3px 3px;
+        width: 100%;
+    }
+    .slogan {
+        margin-bottom: 10px;
+    }
+    .select-example-button {
+        font-size: 20px;
+        padding: 6px 12px;
+        margin-bottom: 38px;
+    }
+    .load-photo-button {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+    .personalise {
+        margin-top: 0px;
+    }
+    .max-length {
+        margin-top: 10px;
+        display: block;
+        text-align: center;
+    }
+
+    .place-face {
+        font-size: 30px;
+    }
+    .gif-ready-download-btn {
+        background-size: 24px;
+        background-position-x: 15px;
+        background-position-y: center;
+        padding: 3px 22px 3px 46px;
+    }
+    .change-text {
+        font-size: 28px;
+        display: block;
+        text-align: center;
+    }
+    .modal-no-photo-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        flex-direction: row;
+        padding: 0;
+    }
+    .modal-no-photo-text {
+        font-family: 'Rostelecom Basis Regular', sans-serif;
+        font-size: 50px;
+        font-weight: 700;
+        color: #8a12ff;
+        padding: 8px 0px;
+    }
+    .yes-button {
+        font-size: 24.4px;
+        padding: 22px 49px;
+    }
+    .back-button {
+        font-size: 26.4px;
+        padding: 21px 11px;
+    }
+    .modal-no-photo-smile {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        font-size: 22px;
+        position: relative;
+        text-align: center;
+        padding: 10px 0;
+        margin: 0;
+    }
+    .container-no-photo {
+        display: flex;
+        position: fixed;
+        background: rgba(0, 0, 0, 0.5);
+        top: 0;
+        left: 0;
+        width: 100vw;
+        z-index: 1;
+    }
+    .change-text {
+        font-size: 24px;
+        display: block;
+        text-align: center;
+    }
+
+    .place-face {
+        font-size: 20px;
+    }
+    .modal-no-photo-header {
+        padding: 0px 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    .modal-no-photo-footer {
+        display: flex;
+        padding: 0 10px;
+        align-content: center;
+        margin: 0;
+    }
+    .modal-no-photo-text {
+        font-size: 20px;
+        padding: 0 3px;
+    }
+    .modal-no-photo-smile {
+        height: 40px;
+        margin-top: 20px;
+    }
+    .yes-button {
+        font-size: 14px;
+        padding: 14px 33px;
+    }
+    .back-button {
+        font-size: 14px;
+        padding: 14px 9px;
+        white-space: nowrap;
+    }
+    .gif-ready-text {
+        margin-top: 20px;
+    }
+    .personalise {
+        margin: 0;
+    }
+}

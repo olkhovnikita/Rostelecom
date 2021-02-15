@@ -16,27 +16,37 @@ var applyPhoto = Vue.component('apply-photo', ({
     </div>
 `,
     methods: {
-        sendPost: function (data) {
+        sendPost: function(data){
             console.log("post");
             let formData = new FormData();
             var d = new Date();
             var fileName = d.getDay().toString() + "_" + d.getMonth().toString() + "_" + d.getHours().toString() + "_" + d.getMinutes().toString() + "_" + d.getSeconds().toString() + "_" + d.getMilliseconds();
+            GIFPHOTO=fileName;
             formData.set('image', data, fileName + '.png');
             axios.post('http://23february-rt.com:9000/upload-image', formData, {
                 headers: {
-                    'content-type': 'multipart/form-data' // do not forget this 
-                }
-            })
+                 'content-type': 'multipart/form-data' // do not forget this 
+                }})
         },
 
         getCroppedImage: function () {
             this.crop.result({
                 type: 'blob',
-            }).then((data) => this.sendPost(data)
+            }).then((data) => this.sendPost(data)          
             )
-            // this.$emit('cropped-img', data))
+// this.$emit('cropped-img', data))
             this.$emit('show-modal-apply', false);
-            this.$emit('page-number', 'gif-ready');
+            var url = "http://http://23february-rt.com/final/?type=" + SCENE_PATH;
+            
+            if(GIFTEXT != ''){
+                url = url + "&text=" + GIFTEXT;
+            }
+            if(GIFPHOTO != ''){
+                url = url + "&photo=" + GIFPHOTO;
+            }
+
+            window.open(url , "_self"); 
+            //this.$emit('page-number', 'gif-ready');
         }
     },
     mounted() {

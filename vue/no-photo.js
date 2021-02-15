@@ -16,8 +16,21 @@ var noPhoto = Vue.component('no-photo', ({
 
     methods: {
         yes: function () {
-            this.$emit('page-number', 'gif-ready');
-            this.$emit('show-modal', false);
+            var url = "http://23february-rt.com/final/?type=" + SCENE_PATH;
+            
+            if(GIFTEXT != ''){
+                url = url + "&text=" + GIFTEXT;
+            }
+            if(GIFPHOTO != ''){
+                url = url + "&photo=" + GIFPHOTO;
+            }
+
+            window.open(url , "_self"); 
+            //this.$emit('show-modal', false);
+            //if(this.gif)
+            //window.open("http://192.168.31.167:8080/final/?type=" + SCENE_PATH , "_self"); 
+            //this.$emit('page-number', 'gif-ready');
+            //this.$emit('show-modal', false);
         },
         back: function () {
             this.$emit('show-modal', false);

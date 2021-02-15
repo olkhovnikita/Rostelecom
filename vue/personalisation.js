@@ -7,13 +7,13 @@ var personalisation = Vue.component('person', {
                     <p class="select personalise">Персонализируй шаблон</p>
                     <p class='select change-text'>Изменить надпись</p> 
                 <div class='form-text'>
-                    <input id='user-text' type="text" placeholder="На страже цифрового будущего" class="slogan" maxlength='25'></input>                       
+                    <input type="text" id="figtext" placeholder="На страже цифрового будущего" class="slogan" maxlength='25'></input>                       
                     <label for='photo' class="select-example-button load-photo-button" >Загрузить фото</label>
                     <input type="file" id='photo' @change='onChange' accept="image/png, image/jpeg">
                 </div>
                     <p class='max-length'>*Максимум 25 символов</p>
-                    <div class='gif-container'>
-                    <canvas id="gif"></canvas>
+                    <div>
+                    <canvas id="gif" ></canvas>
                     </div>
                     <div class='select-button'>
                         <button type='button' class='select-example-button make-a-gif-btn' @click="check">Создать GIF</button>
@@ -30,8 +30,9 @@ var personalisation = Vue.component('person', {
         document.head.appendChild(externalScriptSecond)
     },
     methods: {
-
         check: function () {
+            var textInp = document.getElementById('figtext');
+            GIFTEXT=textInp.value;
             var input = document.getElementById('photo');
             if (input.value) {
                 this.$emit('show-modal-apply', true);

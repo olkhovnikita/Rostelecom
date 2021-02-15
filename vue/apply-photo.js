@@ -26,7 +26,18 @@ var applyPhoto = Vue.component('apply-photo', ({
             axios.post('http://23february-rt.com:9000/upload-image', formData, {
                 headers: {
                  'content-type': 'multipart/form-data' // do not forget this 
-                }})
+                }}).then(restp => {
+                    var url = "http://23february-rt.com/final/?type=" + SCENE_PATH;
+            
+                    if(GIFTEXT != ''){
+                        url = url + "&text=" + GIFTEXT;
+                    }
+                    if(GIFPHOTO != ''){
+                        url = url + "&photo=" + GIFPHOTO;
+                    }
+
+                    window.open(url , "_self"); 
+                })
         },
 
         getCroppedImage: function () {
@@ -36,16 +47,7 @@ var applyPhoto = Vue.component('apply-photo', ({
             )
 // this.$emit('cropped-img', data))
             this.$emit('show-modal-apply', false);
-            var url = "http://23february-rt.com/final/?type=" + SCENE_PATH;
             
-            if(GIFTEXT != ''){
-                url = url + "&text=" + GIFTEXT;
-            }
-            if(GIFPHOTO != ''){
-                url = url + "&photo=" + GIFPHOTO;
-            }
-
-            window.open(url , "_self"); 
             //this.$emit('page-number', 'gif-ready');
         }
     },

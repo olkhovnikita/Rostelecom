@@ -3,12 +3,7 @@ var gifReady = Vue.component('gif-ready', ({
     template: `
     <div class='gif-ready-container'>
         <div class='gif-ready-header'>
-            <p class='select gif-ready-text'>Твоя GIF-открытка готова.<br></p>
-            <textarea id="url" ref="text" class='slogantwo make-another-btn' ></textarea>
-            <div class='download-button-group'>     
-                <button @click="copyurl" class='select-example-button make-another-btn' download>Скопировать ссылку</button> 
-            </div>
-
+            <p class='select gif-ready-text'>Твоя персональная GIF-открытка.<br></p>
             <canvas id="gif" ></canvas>
         </div>
         <button type='button' class='select-example-button make-another-btn' @click="openStart">Создать еще одно GIF-поздравление</button>

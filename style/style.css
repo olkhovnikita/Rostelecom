@@ -151,6 +151,16 @@ footer {
     padding: 10px 80px;
     margin-top: 30px;
 }
+.select-example-button-two {
+    font-family: 'Rostelecom Basis Regular', sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #f84c12;
+    border-radius: 50px;
+    padding: 10px 80px;
+    margin-top: 30px;
+}
 
 .select-example-button:disabled, .select-example-button[disabled=true] {
     background-color: gray;
@@ -382,7 +392,6 @@ footer {
 }
 
 .gif-ready-download-btn {
-    background: url(../img/load_sign.png);
     background-repeat: no-repeat;
     background-position-x: 50px;
     background-position-y: 5px;
@@ -434,6 +443,7 @@ footer {
         padding: 6px 12px;
         margin-bottom: 38px;
     }
+
     .load-photo-button {
         font-size: 16px;
         padding: 6px 12px;

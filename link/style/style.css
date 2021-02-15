@@ -174,7 +174,7 @@ footer {
 #gif {
     display: block;
     margin: 0 auto;
-    
+    width: 100% !important;
     border: none;
     outline: none;
     cursor: pointer;
@@ -243,6 +243,7 @@ footer {
     height: 1px;
     overflow: hidden;
 }
+
 .cr-resizer {
     border: none !important;
 }
@@ -397,7 +398,6 @@ footer {
     margin-bottom: 22px;
 }
 
-
 .topurl {
     display: flex;
     justify-content: space-between;
@@ -428,7 +428,7 @@ footer {
     font-size: 31px;
 }
 
-.another-text{
+.another-text {
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
@@ -481,7 +481,6 @@ footer {
         display: block;
         text-align: center;
     }
-
     .place-face {
         font-size: 30px;
     }
@@ -545,7 +544,6 @@ footer {
         display: block;
         text-align: center;
     }
-
     .place-face {
         font-size: 20px;
     }

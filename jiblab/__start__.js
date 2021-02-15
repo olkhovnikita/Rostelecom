@@ -32,7 +32,6 @@
             canvas.classList.add('fill-mode-' + fillMode);
         }
 
-        // css media query for aspect ratio changes
         var css  = "@media screen and (min-aspect-ratio: " + width + "/" + height + ") {";
         css += "    #gif.fill-mode-KEEP_ASPECT {";
         css += "        width: auto;";
@@ -56,7 +55,7 @@
 
         if (fillMode == pc.FILLMODE_NONE || fillMode == pc.FILLMODE_KEEP_ASPECT) {
             if ((fillMode == pc.FILLMODE_NONE && canvas.clientHeight < window.innerHeight) || (canvas.clientWidth / canvas.clientHeight >= window.innerWidth / window.innerHeight)) {
-                canvas.style.marginTop = Math.floor((window.innerHeight - canvas.clientHeight) / 2) + 'px';
+                canvas.style.marginTop = '';
             } else {
                 canvas.style.marginTop = '';
             }

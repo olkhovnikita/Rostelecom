@@ -32,12 +32,11 @@
             canvas.classList.add('fill-mode-' + fillMode);
         }
 
-        // css media query for aspect ratio changes
         var css  = "@media screen and (min-aspect-ratio: " + width + "/" + height + ") {";
-        css += "    #application-canvas.fill-mode-KEEP_ASPECT {";
+        css += "    #gif.fill-mode-KEEP_ASPECT {";
         css += "        width: auto;";
-        css += "        height: 100%;";
-        css += "        margin: 0 auto;";
+        css += "        height: 0.75 * width";
+        css += "        margin: 0 0;";
         css += "    }";
         css += "}";
         
@@ -56,7 +55,7 @@
 
         if (fillMode == pc.FILLMODE_NONE || fillMode == pc.FILLMODE_KEEP_ASPECT) {
             if ((fillMode == pc.FILLMODE_NONE && canvas.clientHeight < window.innerHeight) || (canvas.clientWidth / canvas.clientHeight >= window.innerWidth / window.innerHeight)) {
-                canvas.style.marginTop = Math.floor((window.innerHeight - canvas.clientHeight) / 2) + 'px';
+                canvas.style.marginTop = '';
             } else {
                 canvas.style.marginTop = '';
             }

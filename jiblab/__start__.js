@@ -37,7 +37,7 @@
         css += "    #gif.fill-mode-KEEP_ASPECT {";
         css += "        width: auto;";
         css += "        height: 100%;";
-        css += "        margin: 0 auto;";
+        css += "        margin: 0 0;";
         css += "    }";
         css += "}";
         

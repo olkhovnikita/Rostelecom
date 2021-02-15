@@ -35,9 +35,6 @@
         // css media query for aspect ratio changes
         var css  = "@media screen and (min-aspect-ratio: " + width + "/" + height + ") {";
         css += "    #gif.fill-mode-KEEP_ASPECT {";
-        css += "        width: auto;";
-        css += "        height: 100%;";
-        css += "        margin: 0 0;";
         css += "    }";
         css += "}";
         

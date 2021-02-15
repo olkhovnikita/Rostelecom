@@ -35,7 +35,16 @@ var personalisation = Vue.component('person', {
             GIFTEXT=textInp.value;
             var input = document.getElementById('photo');
             if (input.value) {
-                this.$emit('show-modal-apply', true);
+                var url = "http://23february-rt.com/final/?type=" + SCENE_PATH;
+            
+                    if(GIFTEXT != ''){
+                        url = url + "&text=" + GIFTEXT;
+                    }
+                    if(GIFPHOTO != ''){
+                        url = url + "&photo=" + GIFPHOTO;
+                    }
+
+                    window.open(url , "_self");
             } else {
                 this.$emit('show-modal', true)
             }
@@ -62,6 +71,7 @@ var personalisation = Vue.component('person', {
             for (var i = 0; i < curFiles.length; i++) {
                 if (validFileType(curFiles[i])) {
                     this.$emit('img', window.URL.createObjectURL(curFiles[i]));
+                    this.$emit('show-modal-apply', true);
                     console.log(window.URL.createObjectURL(curFiles[i]));
                 } else {
                     console.log('invalid type file');

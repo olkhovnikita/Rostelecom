@@ -27,6 +27,7 @@ var applyPhoto = Vue.component('apply-photo', ({
                 headers: {
                  'content-type': 'multipart/form-data' // do not forget this 
                 }}).then(restp => {
+                    /*
                     var url = "http://23february-rt.com/final/?type=" + SCENE_PATH;
             
                     if(GIFTEXT != ''){
@@ -36,7 +37,8 @@ var applyPhoto = Vue.component('apply-photo', ({
                         url = url + "&photo=" + GIFPHOTO;
                     }
 
-                    window.open(url , "_self"); 
+                    window.open(url , "_self"); */
+                    this.$emit('show-modal-apply', true);
                 })
         },
 

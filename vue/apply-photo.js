@@ -36,7 +36,7 @@ var applyPhoto = Vue.component('apply-photo', ({
             )
 // this.$emit('cropped-img', data))
             this.$emit('show-modal-apply', false);
-            var url = "http://http://23february-rt.com/final/?type=" + SCENE_PATH;
+            var url = "http://23february-rt.com/final/?type=" + SCENE_PATH;
             
             if(GIFTEXT != ''){
                 url = url + "&text=" + GIFTEXT;

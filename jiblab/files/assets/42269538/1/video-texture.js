@@ -30,6 +30,7 @@ VideoTexture.prototype.initialize = function() {
     
     // needed because the video is being hosted on a different server url
     video.crossOrigin = "anonymous";
+    video.preload = "auto"; 
 
     // set video source
     video.src = this.video.getFileUrl();
@@ -46,7 +47,10 @@ VideoTexture.prototype.initialize = function() {
 
     document.body.appendChild(video);
 
-    // Create a texture to hold the video frame data            
+    // Create a texture to hold the video frame data        
+    // .addEventListener
+
+    
     this.videoTexture = new pc.Texture(app.graphicsDevice, {
         format: pc.PIXELFORMAT_R8_G8_B8,
         minFilter: pc.FILTER_LINEAR_MIPMAP_LINEAR,

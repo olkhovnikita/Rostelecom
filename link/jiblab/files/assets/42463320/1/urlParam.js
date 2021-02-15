@@ -1,5 +1,6 @@
 var UrlParam = pc.createScript('urlParam');
 UrlParam.attributes.add('text', { type: 'entity' });
+UrlParam.attributes.add('gifText', { type: 'string' });
 
 UrlParam.prototype.initialize = function() {
     const queryString = window.location.search;
@@ -10,7 +11,7 @@ UrlParam.prototype.initialize = function() {
     }
     else
     {
-        this.text.element.text = "На страже цифрового будущего";
+        this.text.element.text = this.gifText;
     }
     
 };

@@ -1,5 +1,3 @@
-const { relativeTimeRounding } = require("moment")
-
 var personalisation = Vue.component('person', {
     props: ['template'],
     template: ` 

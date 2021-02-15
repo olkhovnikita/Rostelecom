@@ -4,10 +4,12 @@ var gifReady = Vue.component('gif-ready', ({
     <div class='gif-ready-container'>
         <div class='gif-ready-header'>
             <p class='select gif-ready-text'>Твоя GIF-открытка готова.<br></p>
-            <canvas id="gif" ></canvas>
+            <textarea ref="text"></textarea>
+            <button @click="copyurl"> Нажмите, чтоб скопировать ссылку</button>
             <div class='download-button-group'>
-                
+            
             </div>
+            <canvas id="gif" ></canvas>
         </div>
         <button type='button' class='select-example-button make-another-btn' @click="openStart">Создать еще одно GIF-поздравление</button>
     </div>
@@ -31,6 +33,10 @@ var gifReady = Vue.component('gif-ready', ({
         openStart: function(){
             window.open("http://23february-rt.com/", "_self");
 
+        },
+        copyurl: function(){
+            this.$refs.text.select();
+            document.execCommand('copy');
         }
     }
 

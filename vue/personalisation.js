@@ -1,3 +1,4 @@
+const { relativeTimeRounding } = require("moment")
 
 var personalisation = Vue.component('person', {
     props: ['template'],
@@ -7,13 +8,13 @@ var personalisation = Vue.component('person', {
                     <p class="select personalise">Персонализируй шаблон</p>
                     <p class='select change-text'>Изменить надпись</p> 
                 <div class='form-text'>
-                    <input type="text" id="figtext" placeholder="На страже цифрового будущего" class="slogan" maxlength='25'></input>                       
+                    <input type="text" id="figtext" :value='switchText(template)' class="slogan" maxlength='25'></input>                       
                     <label for='photo' class="select-example-button load-photo-button" >Загрузить фото</label>
                     <input type="file" id='photo' @change='onChange' accept="image/png, image/jpeg">
                 </div>
                     <p class='max-length'>*Максимум 25 символов</p>
                     <div>
-                    <canvas id="gif" ></canvas>
+                    <img class='selected-gif' :src='src(template)'>
                     </div>
                     <div class='select-button'>
                         <button type='button' class='select-example-button make-a-gif-btn' @click="check">Создать GIF</button>
@@ -30,21 +31,53 @@ var personalisation = Vue.component('person', {
         document.head.appendChild(externalScriptSecond)
     },
     methods: {
+        switchText: function (template) {
+            switch (template) {
+                case 'Star':
+                    return 'Ты - звезда!';
+                case 'Chirlider':
+                    return 'Только Вперёд!';
+                case 'rocket':
+                    return 'Космических успехов!';
+                case 'city':
+                    return 'На страже цифрового будущего';
+                case 'Beach':
+                    return 'Получай удовольствие от удалёнки';
+
+            }
+        },
+
+
+
+        src: function (template) {
+            switch (template) {
+                case 'Star':
+                    return 'gif/star.gif'
+                case 'Chirlider':
+                    return 'gif/chir.gif'
+                case 'rocket':
+                    return 'gif/rocket.gif'
+                case 'city':
+                    return 'gif/city.gif'
+                case 'Beach':
+                    return 'gif/Beach.gif'
+            }
+        },
         check: function () {
             var textInp = document.getElementById('figtext');
-            GIFTEXT=textInp.value;
+            GIFTEXT = textInp.value;
             var input = document.getElementById('photo');
             if (input.value) {
                 var url = "http://23february-rt.com/final/?type=" + SCENE_PATH;
-            
-                    if(GIFTEXT != ''){
-                        url = url + "&text=" + GIFTEXT;
-                    }
-                    if(GIFPHOTO != ''){
-                        url = url + "&photo=" + GIFPHOTO;
-                    }
 
-                    window.open(url , "_self");
+                if (GIFTEXT != '') {
+                    url = url + "&text=" + GIFTEXT;
+                }
+                if (GIFPHOTO != '') {
+                    url = url + "&photo=" + GIFPHOTO;
+                }
+
+                window.open(url, "_self");
             } else {
                 this.$emit('show-modal', true)
             }
@@ -78,5 +111,8 @@ var personalisation = Vue.component('person', {
                 }
             }
         },
+    },
+    computed() {
+        switchText(template);
     }
 })

@@ -21,11 +21,25 @@ var applyPhoto = Vue.component('apply-photo', ({
             let formData = new FormData();
             var d = new Date();
             var fileName = d.getDay().toString() + "_" + d.getMonth().toString() + "_" + d.getHours().toString() + "_" + d.getMinutes().toString() + "_" + d.getSeconds().toString() + "_" + d.getMilliseconds();
+            GIFPHOTO = fileName;
             formData.set('image', data, fileName + '.png');
             axios.post('http://23february-rt.com:9000/upload-image', formData, {
                 headers: {
                     'content-type': 'multipart/form-data' // do not forget this 
                 }
+            }).then(restp => {
+                /*
+                var url = "http://23february-rt.com/final/?type=" + SCENE_PATH;
+        
+                if(GIFTEXT != ''){
+                    url = url + "&text=" + GIFTEXT;
+                }
+                if(GIFPHOTO != ''){
+                    url = url + "&photo=" + GIFPHOTO;
+                }
+
+                window.open(url , "_self"); */
+                this.$emit('show-modal-apply', true);
             })
         },
 
@@ -36,14 +50,15 @@ var applyPhoto = Vue.component('apply-photo', ({
             )
             // this.$emit('cropped-img', data))
             this.$emit('show-modal-apply', false);
-            this.$emit('page-number', 'gif-ready');
+
+            //this.$emit('page-number', 'gif-ready');
         }
     },
     mounted() {
         this.crop = new Croppie(document.getElementById('applying-photo'), {
             showZoomer: false,
-            enableResize: false,
-            viewport: { width: 150, height: 250, type: 'circle' }
+            enableResize: true,
+            viewport: { width: 200, height: 200, type: 'square' }
         })
     }
 }))

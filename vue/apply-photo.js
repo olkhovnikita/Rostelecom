@@ -27,17 +27,6 @@ var applyPhoto = Vue.component('apply-photo', ({
                 headers: {
                  'content-type': 'multipart/form-data' // do not forget this 
                 }}).then(restp => {
-                    /*
-                    var url = "http://23february-rt.com/final/?type=" + SCENE_PATH;
-            
-                    if(GIFTEXT != ''){
-                        url = url + "&text=" + GIFTEXT;
-                    }
-                    if(GIFPHOTO != ''){
-                        url = url + "&photo=" + GIFPHOTO;
-                    }
-
-                    window.open(url , "_self"); */
                     this.$emit('show-modal-apply', true);
                 })
         },
@@ -47,10 +36,7 @@ var applyPhoto = Vue.component('apply-photo', ({
                 type: 'blob',
             }).then((data) => this.sendPost(data)          
             )
-// this.$emit('cropped-img', data))
             this.$emit('show-modal-apply', false);
-            
-            //this.$emit('page-number', 'gif-ready');
         }
     },
     mounted() {

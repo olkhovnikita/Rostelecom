@@ -32,7 +32,7 @@ var gifReady = Vue.component('gif-ready', ({
         var photo = urlParams.get('photo');
         var text = urlParams.get('text');
 
-        var linkurl = "http://23february-rt.com/link/?type=" + type;
+        var linkurl = "https://23february-rt.com/link/?type=" + type;
         if(text != undefined){
             linkurl = linkurl + "&text=" + text;
         }
@@ -45,7 +45,7 @@ var gifReady = Vue.component('gif-ready', ({
     },
     methods: {
         openStart: function(){
-            window.open("http://23february-rt.com/", "_self");
+            window.open("https://23february-rt.com/", "_self");
 
         },
         copyurl: function(){

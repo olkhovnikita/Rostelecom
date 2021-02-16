@@ -66,7 +66,7 @@ var personalisation = Vue.component('person', {
             GIFTEXT = textInp.value;
             var input = document.getElementById('photo');
             if (input.value) {
-                var url = "http://23february-rt.com/final/?type=" + SCENE_PATH;
+                var url = "https://23february-rt.com/final/?type=" + SCENE_PATH;
 
                 if (GIFTEXT != '') {
                     url = url + "&text=" + GIFTEXT;

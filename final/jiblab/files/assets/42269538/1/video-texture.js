@@ -99,5 +99,5 @@ VideoTexture.prototype.playVideo = function(){
     video.play();
     //video.currentTime = 0;
     this.timeline.script.timeline.setStarted(true);
-    setTimeout(() => video.currentTime = 0, 200);
+    setTimeout(() => video.currentTime = 0, 1000);
 };

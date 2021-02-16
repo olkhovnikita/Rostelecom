@@ -46,6 +46,7 @@ body {
     background: url('../img/background.jpg');
     background-repeat: no-repeat;
     background-position-y: top;
+    background-position-x: center;
     background-size: cover;
     min-height: 100vh;
 }

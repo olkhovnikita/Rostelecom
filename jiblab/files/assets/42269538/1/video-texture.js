@@ -22,7 +22,7 @@ VideoTexture.prototype.initialize = function() {
     
     // Create HTML Video Element to play the video
     video = document.createElement('video');
-    video.loop = false;
+    video.loop = true;
 
     // muted attribute is required for videos to autoplay
     video.muted = true;

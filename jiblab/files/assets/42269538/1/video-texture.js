@@ -73,7 +73,7 @@ VideoTexture.prototype.initialize = function() {
     }.bind(this));
     
     video.addEventListener('play', function () {
-        this.timeline.script.timeline.fire();
+        //this.timeline.script.timeline.fire();
         record = true;
     }.bind(this));
 };
@@ -87,5 +87,6 @@ VideoTexture.prototype.update = function(dt) {
 
 VideoTexture.prototype.playVideo = function(){
     video.play();
+    video.currentTime = 0;
     this.timeline.script.timeline.setStarted(true);
 };

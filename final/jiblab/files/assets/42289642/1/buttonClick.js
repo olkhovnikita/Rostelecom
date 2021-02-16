@@ -13,5 +13,5 @@ ButtonClick.prototype.initialize = function() {
 ButtonClick.prototype.onPress = function (event) {
     this.videoTextureEntity.script.videoTexture.playVideo();
     this.entity.enabled = false;
-    this.over.enabled = false;
+    this.over.enabled = false;  
 };

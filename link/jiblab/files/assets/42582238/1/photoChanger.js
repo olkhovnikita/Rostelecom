@@ -19,7 +19,7 @@ PhotoChanger.prototype.initialize = function() {
             material.update();
         };
         
-        image.src = 'http://23february-rt.com/uploads/' + photo + ".png";
+        image.src = 'https://23february-rt.com/uploads/' + photo + ".png";
     }
 };
 

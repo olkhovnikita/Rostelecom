@@ -14,13 +14,15 @@ VideoTexture.attributes.add('playEvent', {
 });
 
 var video;
+var record = false;
+
 // initialize code called once per entity
 VideoTexture.prototype.initialize = function() {
     var app = this.app;
     
     // Create HTML Video Element to play the video
     video = document.createElement('video');
-    video.loop = true;
+    video.loop = false;
 
     // muted attribute is required for videos to autoplay
     video.muted = true;
@@ -59,7 +61,7 @@ VideoTexture.prototype.initialize = function() {
         addressV: pc.ADDRESS_CLAMP_TO_EDGE,
         mipmaps: true
     });
-    this.videoTexture.setSource(video);
+    this.videoTexture.setSource(video);   
 
     video.addEventListener('canplay', function (e) {
         app.fire(this.playEvent, this.videoTexture);
@@ -72,8 +74,10 @@ VideoTexture.prototype.initialize = function() {
     
     video.addEventListener('play', function () {
         this.timeline.script.timeline.fire();
+        record = true;
     }.bind(this));
 };
+    
 
 // update code called every frame
 VideoTexture.prototype.update = function(dt) {

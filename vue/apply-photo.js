@@ -50,6 +50,10 @@ var applyPhoto = Vue.component('apply-photo', ({
             )
             // this.$emit('cropped-img', data))
             this.$emit('show-modal-apply', false);
+            var textInp = document.getElementById('photoButton');
+            textInp.style.pointerEvents = 'none';
+            textInp.style.backgroundColor = '#777777';
+            //textInp.style.display = 'none';
 
             //this.$emit('page-number', 'gif-ready');
         }

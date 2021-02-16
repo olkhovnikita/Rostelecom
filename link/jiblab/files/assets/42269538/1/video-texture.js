@@ -1,5 +1,6 @@
 var VideoTexture = pc.createScript('videoTexture');
 VideoTexture.attributes.add('timeline', { type: 'entity' });
+VideoTexture.attributes.add('overlay', { type: 'entity' });
 
 VideoTexture.attributes.add('video', {
     title: 'Video',
@@ -70,6 +71,15 @@ VideoTexture.prototype.initialize = function() {
     
     video.addEventListener('seeked', function () {
         this.timeline.script.timeline.fire();
+        this.overlay.enabled = false;
+    }.bind(this));
+    
+    video.addEventListener('timeupdate', function () {
+        console.log(this.timeline.script.timeline.started);
+        if(this.timeline.script.timeline.started === false){
+            this.timeline.script.timeline.setStarted(true);
+            this.timeline.script.timeline.fire();
+        }
     }.bind(this));
     
     video.addEventListener('play', function () {
@@ -87,6 +97,7 @@ VideoTexture.prototype.update = function(dt) {
 
 VideoTexture.prototype.playVideo = function(){
     video.play();
-    video.currentTime = 0;
+    //video.currentTime = 0;
     this.timeline.script.timeline.setStarted(true);
+    setTimeout(() => video.currentTime = 0, 200);
 };

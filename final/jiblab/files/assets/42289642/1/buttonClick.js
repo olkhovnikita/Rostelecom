@@ -1,7 +1,6 @@
 var ButtonClick = pc.createScript('buttonClick');
 
 ButtonClick.attributes.add('videoTextureEntity', { type: 'entity' });
-ButtonClick.attributes.add('over', { type: 'entity' });
 
 // initialize code called once per entity
 ButtonClick.prototype.initialize = function() {
@@ -13,5 +12,4 @@ ButtonClick.prototype.initialize = function() {
 ButtonClick.prototype.onPress = function (event) {
     this.videoTextureEntity.script.videoTexture.playVideo();
     this.entity.enabled = false;
-    this.over.enabled = false;  
 };

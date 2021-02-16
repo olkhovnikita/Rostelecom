@@ -1,10 +1,11 @@
 var Timeline = pc.createScript('timeline');
-var started = false;
+
 var state = 0;
 
 var tweens = [];
 
 Timeline.attributes.add('autoplay', { type : 'boolean' });
+Timeline.attributes.add('started', { type : 'boolean' });
 
 Timeline.attributes.add('position', { type : 'boolean', default : false });
 Timeline.attributes.add('scale', { type : 'boolean', default : false });
@@ -190,13 +191,13 @@ Timeline.prototype.setFirstFrame = function() {
 };
 
 Timeline.prototype.setStarted = function(isStarted) {
-    started = isStarted;
+    this.started = isStarted;
 };
 
 
 
 Timeline.prototype.fire = function() {
-    if(started){
+    if(this.started){
         this.onPlay();
     }
 };

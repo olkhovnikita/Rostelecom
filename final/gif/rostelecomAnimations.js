@@ -102,20 +102,19 @@ var Scene = {
         var self = this;
         this.m_face = new Image();
         this.m_face.onload = function() {
-            this.m_gifRecorder = new GIF({
-                workers: this.m_recoderWorcers,
-                quality: this.m_recoderQuality,
-                //dither: 'FloydSteinberg'
-            });
-        
-            
-            setInterval(function(){
-                self.draw();
-            }, this.m_playTimeout);
         };
         this.m_face.src = this.m_faceSrc;
 
+        this.m_gifRecorder = new GIF({
+            workers: this.m_recoderWorcers,
+            quality: this.m_recoderQuality,
+            //dither: 'FloydSteinberg'
+        });
+    
         
+        setInterval(function(){
+            self.draw();
+        }, this.m_playTimeout);
     },
     start(){  
         //bg sprites array

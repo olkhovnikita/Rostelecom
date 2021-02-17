@@ -52,7 +52,7 @@ var personalisation = Vue.component('person', {
                 case 'city':
                     return 'gif/city.gif'
                 case 'Beach':
-                    return 'gif/Beach.gif'
+                    return 'gif/beach.gif'
             }
         },
         check: function () {

@@ -44,12 +44,12 @@ var applyPhoto = Vue.component('apply-photo', ({
                 var ctx = canvas.getContext("2d");
                 console.log("asd1f");
                 var mask = new Image();
-                this.ff();
+                var self = this;
+                self.ff();
                 mask.onload = function() {
-                    this.ff();
+                    self.ff();
                     console.log("asd21f");
                     var face = new Image();
-                    var self = this;
                     face.onload = function() {
                         self.ff();
                         console.log("asd22341f");

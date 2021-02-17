@@ -75,7 +75,9 @@ var gifReady = Vue.component('gif-ready', ({
             CurrentScene.m_cavasElementId = "gif";
             
             if(photo != undefined){
+                CurrentScene.m_faceIsCustom = true;
                 CurrentScene.m_faceSrc =  "https://23february-rt.com/uploads/" + photo + ".png";
+                CurrentScene.m_faceMaskSrc = 'gif/mask.png'
             }
             else {
                 if(type === 'Chirlider') {
@@ -114,13 +116,7 @@ var gifReady = Vue.component('gif-ready', ({
                         a.dataset.downloadurl =  [contentType, a.download, a.href].join(':');
                         e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
                         a.dispatchEvent(e);
-                        // false for not mobile device
-                        
-                      }
-                      
-                    //window.open(gifBlob, "_self");
-                    
-                    
+                      }                           
                 }
                 e.preventDefault();
             });

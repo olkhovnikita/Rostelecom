@@ -14,6 +14,10 @@ var Scene = {
 
     m_face: {},
     m_faceSrc: 'face.png',
+    m_faceIsCustom: false,
+    m_faceMask: {},
+    m_faceMaskSrc: 'mask.png',
+
 
     m_framesCount: 55,
     m_halfCount: this.m_framesCount/2,
@@ -43,7 +47,7 @@ var Scene = {
         //text
         this.m_context.fillText(this.m_text, this.m_textX, this.m_textY)
         //face
-        this.drawImageRot(this.m_context, this.m_face, this.m_facePosX, this.m_facePosY, this.m_faceW, this.m_faceH, this.m_faceAngle);
+        this.drawImageRot(this.m_context, this.m_face, this.m_faceMask, this.m_faceIsCustom, this.m_facePosX, this.m_facePosY, this.m_faceW, this.m_faceH, this.m_faceAngle);
         
         this.updatePositions();
 
@@ -57,18 +61,57 @@ var Scene = {
     },
     updatePositions(){      
     },
-    drawImageRot(a_context, a_img, a_x, a_y, a_width, a_height, a_deg){
-        a_context.save();
+    drawImageRot(a_context, a_img, a_msk, a_cutom, a_x, a_y, a_width, a_height, a_deg){
+        /*
+            var red = new Image();
+        red.onload = function () {
+            canvas.width = red.width;
+            canvas.height = red.height;
+            ctx.drawImage(red, 0, 0);
 
-        var rad = a_deg * Math.PI / 180;
-        a_context.translate(a_x + a_width / 2, a_y + a_height / 2);
+            var grass = new Image();
+            grass.onload = function () {
+                ctx.save();
+                ctx.globalCompositeOperation = 'source-in';
+                ctx.drawImage(grass, 0, 0, grass.width, grass.height, 0, 0, canvas.width, canvas.height);
+                ctx.restore();
+            }
+            grass.src = "tex/1.jpg";
 
-        a_context.rotate(rad);
-        a_context.drawImage(a_img, a_width/2*(-1), a_height/2*(-1), a_width, a_height);
-        a_context.rotate(-1 * rad)
-        a_context.translate((a_x+a_width/2) * (-1), (a_y + a_height / 2) * (-1));
+        }
+        red.src = "tex/msk.png";*/
+        if(a_cutom){
+            a_context.save();
 
-        a_context.restore();
+            var rad = a_deg * Math.PI / 180;
+            a_context.translate(a_x + a_width / 2, a_y + a_height / 2);
+    
+            a_context.rotate(rad);
+            a_context.drawImage(a_msk, a_width/2*(-1), a_height/2*(-1), a_width, a_height);
+            a_context.save();
+            a_context.globalCompositeOperation = 'source-in';
+            ctx.drawImage(a_img, a_width/2*(-1), a_height/2*(-1), a_width, a_height);
+            ctx.restore();
+            a_context.restore();
+            a_context.rotate(-1 * rad)
+            a_context.translate((a_x+a_width/2) * (-1), (a_y + a_height / 2) * (-1));
+    
+            a_context.restore();
+        }
+        else {
+            a_context.save();
+
+            var rad = a_deg * Math.PI / 180;
+            a_context.translate(a_x + a_width / 2, a_y + a_height / 2);
+    
+            a_context.rotate(rad);
+            a_context.drawImage(a_img, a_width/2*(-1), a_height/2*(-1), a_width, a_height);
+            a_context.rotate(-1 * rad)
+            a_context.translate((a_x+a_width/2) * (-1), (a_y + a_height / 2) * (-1));
+    
+            a_context.restore();
+        }
+
     },
     grabFrame(){
         this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout, copy: true});
@@ -99,6 +142,35 @@ var Scene = {
 
         this.m_face = new Image();
         this.m_face.src = this.m_faceSrc;
+        
+
+        if(this.m_faceIsCustom){
+            this.m_faceMask = new Image();
+            this.m_faceMask.src = this.m_faceMaskSrc;
+/*
+            var red = new Image();
+        red.onload = function () {
+            canvas.width = red.width;
+            canvas.height = red.height;
+            ctx.drawImage(red, 0, 0);
+
+            var grass = new Image();
+            grass.onload = function () {
+                ctx.save();
+                ctx.globalCompositeOperation = 'source-in';
+                ctx.drawImage(grass, 0, 0, grass.width, grass.height, 0, 0, canvas.width, canvas.height);
+                ctx.restore();
+            }
+            grass.src = "tex/1.jpg";
+
+        }
+        red.src = "tex/msk.png";*/
+
+        }
+        else {
+
+        }
+       
 
         this.m_gifRecorder = new GIF({
             workers: this.m_recoderWorcers,

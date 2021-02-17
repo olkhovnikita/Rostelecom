@@ -60,11 +60,11 @@ var applyPhoto = Vue.component('apply-photo', ({
                         ctx.save();
                         ctx.drawImage(mask, 0, 0, face.width, face.height, 0, 0 , canvas.width, canvas.height);
                         ctx.restore();
+                        ctx.globalCompositeOperation = 'source-in';
                         ctx.drawImage(face, 0, 0);
                         canvas.toBlob(function(blob) {
                             this.sendPost(blob);
                             });
-                        //this.sendPost(canvas.toBlob)
                     }
                     face = data;
                 }

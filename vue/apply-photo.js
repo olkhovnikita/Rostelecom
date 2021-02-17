@@ -56,6 +56,7 @@ var applyPhoto = Vue.component('apply-photo', ({
                     console.log("asd21f");
                     var face = new Image();
                     face.onload = function() {
+                        console.log("asd22341f");
                         canvas.width = face.width;
                         canvas.height = face.height;
                         ctx.drawImage(mask, 0, 0, mask.width, mask.height, 0, 0 , canvas.width, canvas.height);
@@ -68,7 +69,7 @@ var applyPhoto = Vue.component('apply-photo', ({
                             this.sendPost(blob);
                             });
                     }
-                    face = data;
+                    face.src = URL.createObjectURL(data);
                 }
                mask.src = "final/gif/mask.png";
             })

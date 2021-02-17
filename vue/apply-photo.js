@@ -62,6 +62,7 @@ var applyPhoto = Vue.component('apply-photo', ({
                         ctx.globalCompositeOperation = 'source-in';
                         ctx.drawImage(face, 0, 0);
                         ctx.restore();
+                        console.log("asdf");
                         canvas.toBlob(function(blob) {
                             this.sendPost(blob);
                             });

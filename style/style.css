@@ -56,7 +56,6 @@ body {
 }
 
 .logo-rt {
-    padding-top: 5%;
     position: absolute;
     display: flex;
     justify-content: flex-end;
@@ -88,6 +87,7 @@ body {
 
 footer {
     position: relative;
+    margin-top: 47px;
 }
 
 .make-a-gif {
@@ -540,7 +540,6 @@ footer {
         justify-content: center;
     }
     .logo-rt img {
-        padding-top: 2%;
         width: 20%;
         height: 20%;
     }
@@ -611,7 +610,6 @@ footer {
         justify-content: center;
     }
     .logo-rt img {
-        padding-top: 8%;
         width: 20%;
         height: 20%;
     }
@@ -624,7 +622,6 @@ footer {
         justify-content: center;
     }
     .logo-rt img {
-        padding-top: 10%;
         width: 20%;
         height: 20%;
     }

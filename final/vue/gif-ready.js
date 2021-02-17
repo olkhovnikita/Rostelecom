@@ -99,18 +99,28 @@ var gifReady = Vue.component('gif-ready', ({
             var gifBlob;
             controlButton.click(function(e){
                 if(clickable){
-                    window.open(gifBlob, "_self");
-                    /*
-                    const contentType = 'application/octet-stream';
-                    var filename = 'rostelecom.gif',
-                    e    = document.createEvent('MouseEvents'),
-                    a    = document.createElement('a');
+                    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+                        console.log('mobile');
+                        window.open(gifBlob, "_self");
+                      }else{
+                        console.log('pc');
+                        const contentType = 'application/octet-stream';
+                        var filename = 'rostelecom.gif',
+                        e    = document.createEvent('MouseEvents'),
+                        a    = document.createElement('a');
 
-                    a.download = filename;
-                    a.href = gifBlob;
-                    a.dataset.downloadurl =  [contentType, a.download, a.href].join(':');
-                    e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                    a.dispatchEvent(e);*/
+                        a.download = filename;
+                        a.href = gifBlob;
+                        a.dataset.downloadurl =  [contentType, a.download, a.href].join(':');
+                        e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                        a.dispatchEvent(e);
+                        // false for not mobile device
+                        
+                      }
+                      
+                    //window.open(gifBlob, "_self");
+                    
+                    
                 }
                 e.preventDefault();
             });

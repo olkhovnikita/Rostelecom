@@ -6,11 +6,11 @@ var personalisation = Vue.component('person', {
                     <p class="select personalise">Персонализируй шаблон</p>
                     <p class='select change-text'>Изменить надпись</p> 
                 <div class='form-text'>
-                    <input type="text" id="figtext" :value='switchText(template)' class="slogan" maxlength='35'></input>                       
+                    <input type="text" id="figtext" :value='switchText(template)' class="slogan" maxlength='30'></input>                       
                     <label for='photo' class="select-example-button load-photo-button" id="photoButton" >Загрузить фото</label>
                     <input type="file" id='photo' @change='onChange' accept="image/png, image/jpeg">
                 </div>
-                    <p class='max-length'>*Максимум 35 символов</p>
+                    <p class='max-length'>*Максимум 30 символов</p>
                     <div>
                     <img class='selected-gif' :src='src(template)'>
                     </div>

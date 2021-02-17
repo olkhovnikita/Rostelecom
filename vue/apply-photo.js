@@ -28,19 +28,11 @@ var applyPhoto = Vue.component('apply-photo', ({
                     'content-type': 'multipart/form-data' // do not forget this 
                 }
             }).then(restp => {
-                /*
-                var url = "http://23february-rt.com/final/?type=" + SCENE_PATH;
-        
-                if(GIFTEXT != ''){
-                    url = url + "&text=" + GIFTEXT;
-                }
-                if(GIFPHOTO != ''){
-                    url = url + "&photo=" + GIFPHOTO;
-                }
-
-                window.open(url , "_self"); */
                 this.$emit('show-modal-apply', true);
             })
+        },
+        ff: function() {
+
         },
 
         getCroppedImage: function () {
@@ -52,10 +44,13 @@ var applyPhoto = Vue.component('apply-photo', ({
                 var ctx = canvas.getContext("2d");
                 console.log("asd1f");
                 var mask = new Image();
+                this.ff();
                 mask.onload = function() {
+                    this.ff();
                     console.log("asd21f");
                     var face = new Image();
                     face.onload = function() {
+                        this.ff();
                         console.log("asd22341f");
                         canvas.width = face.width;
                         canvas.height = face.height;

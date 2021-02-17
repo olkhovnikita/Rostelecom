@@ -75,9 +75,7 @@ var gifReady = Vue.component('gif-ready', ({
             CurrentScene.m_cavasElementId = "gif";
             
             if(photo != undefined){
-                CurrentScene.m_faceIsCustom = true;
                 CurrentScene.m_faceSrc =  "https://23february-rt.com/uploads/" + photo + ".png";
-                CurrentScene.m_faceMaskSrc = 'gif/mask.png'
             }
             else {
                 if(type === 'Chirlider') {

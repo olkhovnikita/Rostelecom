@@ -7,10 +7,9 @@ var gifReady = Vue.component('gif-ready', ({
             <textarea id="url" ref="text" class='slogantwo make-another-btn' ></textarea>
             <div class='download-button-group'>     
                 <button @click="copyurl" class='select-example-button make-another-btn' download>Скопировать ссылку</button> 
-                <a id="downloadButton" href="#" class="progress-button red" data-loading="Создание.." data-finished="Скачать">Скачать</a>
+                
             </div>
-            
-            <div id="renderProgressDiv"></div>
+            <a id="downloadButton" href="#" class="progress-button red make-another-btn" data-loading="Создание.." data-finished="Скачать">Скачать</a>
             <canvas width="1000" height="750" id="gif" ></canvas>
         </div>
         <button type='button' class='select-example-button make-another-btn' @click="openStart">Создать еще одно GIF-поздравление</button>
@@ -36,7 +35,7 @@ var gifReady = Vue.component('gif-ready', ({
 
         let url = document.getElementById("url");
         url.value = linkurl;
-        
+
         document.addEventListener('DOMContentLoaded', function(){
             BeachScene.m_bgPath = 'gif/bg'
             BeachScene.m_cavasElementId = "gif";
@@ -52,22 +51,41 @@ var gifReady = Vue.component('gif-ready', ({
             $('.progress-button').progressInitialize();
             var controlButton = $('#downloadButton');
             var clickable = false;
+            controlButton.progressIncrement();
+            var gifBlob;
             controlButton.click(function(e){
-                console.log("click");
-                console.log(clickable);
+                //console.log("click");
+                //console.log(clickable);
                 if(clickable){
-                    alert('Showing how a callback works!');
+                    //alert('Showing how a callback works!');
+                    const contentType = 'application/octet-stream';
+                    
+
+                    var filename = 'rostelecom.gif'
+
+                   
+
+                    //var blob = new Blob([data], {type: contentType}),
+                    e    = document.createEvent('MouseEvents'),
+                    a    = document.createElement('a')
+
+                    a.download = filename
+                    a.href = gifBlob;
+                    a.dataset.downloadurl =  [contentType, a.download, a.href].join(':')
+                    e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
+                    a.dispatchEvent(e)
                 }
                 e.preventDefault();
             });
         
             window.addEventListener('renderProgress', function(e) {
-                console.log(e.detail);
+                //console.log(e.detail);
                 controlButton.progressSet(e.detail);
             });
 
             window.addEventListener('renderCompleted', function(e) {
-                console.log(e.detail);
+                //console.log(e.detail);
+                gifBlob = e.detail;
                 controlButton.progressFinish();
                 clickable = true;
             });        
@@ -117,7 +135,6 @@ var gifReady = Vue.component('gif-ready', ({
                             });
         
                         }
-        
                         setProgress(progress);
                     });
         

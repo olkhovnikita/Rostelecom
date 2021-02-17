@@ -675,10 +675,17 @@ footer {
 }
 
 .progress-button.red{
-    background-color: #e6537d;
-    background-image:-webkit-linear-gradient(top, #e6537d, #df5179);
-    background-image:-moz-linear-gradient(top, #e6537d, #df5179);
-    background-image:linear-gradient(top, #e6537d, #df5179);
+    font-family: 'Rostelecom Basis Regular', sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    border-radius: 50px;
+    padding: 10px 80px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #f84c12;
+    background-image:-webkit-linear-gradient(top, #f84c12, #f84c12);
+    background-image:-moz-linear-gradient(top, #f84c12, #f84c12);
+    background-image:linear-gradient(top, #f84c12, #f84c12);
 }
 
 .progress-button.red .tz-bar{

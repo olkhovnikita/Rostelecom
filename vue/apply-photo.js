@@ -50,7 +50,7 @@ var applyPhoto = Vue.component('apply-photo', ({
             {
                 var canvas = document.createElement('canvas');
                 var ctx = canvas.getContext("2d");
-
+                console.log("asd1f");
                 var mask = new Image();
                 mask.onload = function() {
                     var face = new Image();

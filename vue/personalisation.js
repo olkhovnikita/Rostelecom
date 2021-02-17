@@ -10,7 +10,7 @@ var personalisation = Vue.component('person', {
                     <label for='photo' class="select-example-button load-photo-button" id="photoButton" >Загрузить фото</label>
                     <input type="file" id='photo' @change='onChange' accept="image/png, image/jpeg">
                 </div>
-                    <p class='max-length'>*Максимум 25 символов</p>
+                    <p class='max-length'>*Максимум {{switchLength(template)}} символов</p>
                     <div>
                     <img class='selected-gif' :src='src(template)'>
                     </div>
@@ -36,7 +36,21 @@ var personalisation = Vue.component('person', {
                 case 'Beach':
                     return 32;
             }
-        },
+        },/*
+        switchLengthText: function (template) {
+            switch (template) {
+                case 'Star':
+                    return '*Максимум 25 символов'12;
+                case 'Chirlider':
+                    return '*Максимум 25 символов'14;
+                case 'rocket':
+                    return '*Максимум 25 символов'21;
+                case 'city':
+                    return '*Максимум 25 символов'29;
+                case 'Beach':
+                    return '*Максимум 25 символов'32;
+            }
+        },*/
         switchText: function (template) {
             switch (template) {
                 case 'Star':
@@ -52,8 +66,6 @@ var personalisation = Vue.component('person', {
 
             }
         },
-
-
 
         src: function (template) {
             switch (template) {

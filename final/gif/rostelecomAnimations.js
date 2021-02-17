@@ -48,7 +48,7 @@ var Scene = {
         this.updatePositions();
 
         if(!this.m_renderStarted) {
-            this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout});
+            this.grabFrame();
 
             if(this.m_iterationN == this.m_framesCount - 1){
                 this.renderGif();
@@ -69,6 +69,9 @@ var Scene = {
         a_context.translate((a_x+a_width/2) * (-1), (a_y + a_height / 2) * (-1));
 
         a_context.restore();
+    },
+    grabFrame(){
+        this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout, copy: true});
     },
     renderGif(){
         console.log('Render started')
@@ -100,7 +103,7 @@ var Scene = {
         this.m_gifRecorder = new GIF({
             workers: this.m_recoderWorcers,
             quality: this.m_recoderQuality,
-            //dither: 'FloydSteinberg'
+            dither: 'FloydSteinberg'
         });
     
         var self = this;
@@ -132,13 +135,13 @@ BeachScene.m_framesCount =  55;
 BeachScene.m_halfCount =  BeachScene.m_framesCount/2;
 BeachScene.m_iterationN = 0;
 BeachScene.m_faceAngle = 0;
-BeachScene.m_facePosX = 140;
+BeachScene.m_facePosX = 160;
 BeachScene.m_facePosY = 290;
 BeachScene.m_faceW = 100;
 BeachScene.m_faceH = 150;
 BeachScene.m_renderStarted = false;
-BeachScene.m_playTimeout = 50;
-BeachScene.m_recTimeout = 150,
+BeachScene.m_playTimeout = 7;
+BeachScene.m_recTimeout = 120,
 BeachScene.m_text = '';
 BeachScene.m_textX = 450;
 BeachScene.m_textY = 140;
@@ -176,6 +179,9 @@ BeachScene.updatePositions = function(){
         this.m_faceAngle = 0;
     }
 }
+BeachScene.grabFrame = function(){
+    if(BeachScene.m_iterationN % 2) this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout, copy: true});
+}
 
 var StarScene = Object.create(Scene);
 
@@ -188,8 +194,8 @@ StarScene.m_facePosY = 270;
 StarScene.m_faceW = 100;
 StarScene.m_faceH = 150;
 StarScene.m_renderStarted = false;
-StarScene.m_playTimeout = 50;
-StarScene.m_recTimeout = 150,
+StarScene.m_playTimeout = 70;
+StarScene.m_recTimeout = 120,
 StarScene.m_text = '';
 StarScene.m_textX = 500;
 StarScene.m_textY = 90;
@@ -218,6 +224,9 @@ StarScene.updatePositions = function(){
         this.m_faceAngle = 5;
         this.m_facePosX = 500;
     }
+}
+StarScene.grabFrame = function(){
+    if(this.m_iterationN % 2) this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout, copy: true});
 }
 
 
@@ -287,7 +296,7 @@ RocketScene.m_faceW = 100;
 RocketScene.m_faceH = 150;
 RocketScene.m_renderStarted = false;
 RocketScene.m_playTimeout = 70;
-RocketScene.m_recTimeout = 240,
+RocketScene.m_recTimeout = 120,
 RocketScene.m_text = '';
 RocketScene.m_textX = 500;
 RocketScene.m_textY = 630;
@@ -328,6 +337,10 @@ RocketScene.updatePositions = function(){
     }
 }
 
+RocketScene.grabFrame = function(){
+    if(this.m_iterationN % 2) this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout, copy: true});
+}
+
 var CityScene = Object.create(Scene);
 
 CityScene.m_framesCount =  75;
@@ -340,7 +353,7 @@ CityScene.m_faceW = 150;
 CityScene.m_faceH = 220;
 CityScene.m_renderStarted = false;
 CityScene.m_playTimeout = 70;
-CityScene.m_recTimeout = 200,
+CityScene.m_recTimeout = 120,
 CityScene.m_text = '';
 CityScene.m_textX = 500;
 CityScene.m_textY = 80;
@@ -388,21 +401,6 @@ CityScene.updatePositions = function(){
     }
 }
 
-CityScene.draw = function(){
-    //bg
-    this.m_context.drawImage(this.m_bgFrames[this.m_iterationN], 0, 0, this.m_canvasW, this.m_canvasH);
-    //text
-    this.m_context.fillText(this.m_text, this.m_textX, this.m_textY)
-    //face
-    this.drawImageRot(this.m_context, this.m_face, this.m_facePosX, this.m_facePosY, this.m_faceW, this.m_faceH, this.m_faceAngle);
-    
-    this.updatePositions();
-
-    if(!this.m_renderStarted) {
-        if(this.m_iterationN % 2) this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout});
-
-        if(this.m_iterationN == this.m_framesCount - 1){
-            this.renderGif();
-        }
-    }
+CityScene.grabFrame = function(){
+    if(this.m_iterationN % 2) this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout, copy: true});
 }

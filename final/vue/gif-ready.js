@@ -37,13 +37,30 @@ var gifReady = Vue.component('gif-ready', ({
         url.value = linkurl;
 
         document.addEventListener('DOMContentLoaded', function(){
-            BeachScene.m_bgPath = 'gif/bg'
-            BeachScene.m_cavasElementId = "gif";
-            BeachScene.m_faceSrc =  'gif/face.png';
-            BeachScene.m_text = 'Получай удовольствие';
-            BeachScene.m_canvasW =  1000;
-            BeachScene.m_canvasH =  750;        
-            BeachScene.start();
+            var CurrentScene = BeachScene;
+
+            if(text != undefined)
+            {
+                CurrentScene.m_text = text;
+            }
+            else 
+            {
+                CurrentScene.m_text = 'Полный вперед!';
+            }
+
+            CurrentScene.m_bgPath = 'gif/bg';
+            CurrentScene.m_cavasElementId = "gif";
+            
+            if(photo != undefined){
+                CurrentScene.m_faceSrc =  "https://23february-rt.com/uploads/" + photo + ".png";
+            }
+            else {
+                CurrentScene.m_faceSrc =  'img/head2.png';
+            }
+            
+            CurrentScene.m_canvasW =  1000;
+            CurrentScene.m_canvasH =  750;        
+            CurrentScene.start();
         });
 
         ///BUTTONS
@@ -54,37 +71,26 @@ var gifReady = Vue.component('gif-ready', ({
             controlButton.progressIncrement();
             var gifBlob;
             controlButton.click(function(e){
-                //console.log("click");
-                //console.log(clickable);
                 if(clickable){
-                    //alert('Showing how a callback works!');
                     const contentType = 'application/octet-stream';
-                    
-
-                    var filename = 'rostelecom.gif'
-
-                   
-
-                    //var blob = new Blob([data], {type: contentType}),
+                    var filename = 'rostelecom.gif',
                     e    = document.createEvent('MouseEvents'),
-                    a    = document.createElement('a')
+                    a    = document.createElement('a');
 
-                    a.download = filename
+                    a.download = filename;
                     a.href = gifBlob;
-                    a.dataset.downloadurl =  [contentType, a.download, a.href].join(':')
-                    e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
-                    a.dispatchEvent(e)
+                    a.dataset.downloadurl =  [contentType, a.download, a.href].join(':');
+                    e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                    a.dispatchEvent(e);
                 }
                 e.preventDefault();
             });
         
             window.addEventListener('renderProgress', function(e) {
-                //console.log(e.detail);
                 controlButton.progressSet(e.detail);
             });
 
             window.addEventListener('renderCompleted', function(e) {
-                //console.log(e.detail);
                 gifBlob = e.detail;
                 controlButton.progressFinish();
                 clickable = true;
@@ -111,7 +117,7 @@ var gifReady = Vue.component('gif-ready', ({
                         if(!button.hasClass('in-progress')){       
                             bar.show();
                             progress = 0;
-                            button.removeClass('finished').addClass('in-progress')
+                            button.removeClass('finished').addClass('in-progress');
                         }
         
                         if(absolute){

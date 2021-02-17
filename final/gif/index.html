@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="rostelecomAnimations.js"></script>
+    <script src="gif.js"></script>
+</head>
+<body>
+    <div id="renderProgressDiv"></div>
+    <canvas width="1000" height="750" id="gif"></canvas>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            BeachScene.m_bgPath = 'bg'
+            BeachScene.m_cavasElementId = "gif";
+            BeachScene.m_faceSrc =  'face.png';
+            BeachScene.m_text = 'Получай удовольствие';
+            BeachScene.m_canvasW =  1000;
+            BeachScene.m_canvasH =  750;
+
+            window.addEventListener('renderProgress', function(e) {
+                console.log(e.detail);
+            });
+            window.addEventListener('renderCompleted', function(e) {
+                console.log(e.detail);
+            });
+
+            BeachScene.start();
+        });
+    </script>
+</body>
+</html>

@@ -62,37 +62,17 @@ var Scene = {
     updatePositions(){      
     },
     drawImageRot(a_context, a_img, a_msk, a_cutom, a_x, a_y, a_width, a_height, a_deg){
-        /*
-            var red = new Image();
-        red.onload = function () {
-            canvas.width = red.width;
-            canvas.height = red.height;
-            ctx.drawImage(red, 0, 0);
-
-            var grass = new Image();
-            grass.onload = function () {
-                ctx.save();
-                ctx.globalCompositeOperation = 'source-in';
-                ctx.drawImage(grass, 0, 0, grass.width, grass.height, 0, 0, canvas.width, canvas.height);
-                ctx.restore();
-            }
-            grass.src = "tex/1.jpg";
-
-        }
-        red.src = "tex/msk.png";*/
         if(a_cutom){
             a_context.save();
-
             var rad = a_deg * Math.PI / 180;
             a_context.translate(a_x + a_width / 2, a_y + a_height / 2);
             a_context.rotate(rad);
             a_context.drawImage(a_msk, a_width/2*(-1), a_height/2*(-1), a_width, a_height);
-            a_context.globalCompositeOperation = 'destination-atop';
+            a_context.globalCompositeOperation = 'source-in';
             a_context.drawImage(a_img, a_width/2*(-1), a_height/2*(-1), a_width, a_height);
 
             a_context.rotate(-1 * rad)
             a_context.translate((a_x+a_width/2) * (-1), (a_y + a_height / 2) * (-1));
-    
             a_context.restore();
         }
         else {

@@ -39,7 +39,6 @@ var gifReady = Vue.component('gif-ready', ({
                     break;
                 case 'city':
                     CurrentScene = CityScene;
-                    CurrentScene.m_facePosY = 220;
                     CurrentScene.m_bgPath = 'gif/bg/city'
                     break;
                 case 'Beach':

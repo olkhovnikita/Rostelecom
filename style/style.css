@@ -51,10 +51,22 @@ body {
     min-height: 100vh;
 }
 
+.logo-rt {
+    position: absolute;
+}
+
+.logo-rt img {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+}
+
 .container {
     max-width: 1400px;
     width: 100%;
-    margin: 50px auto;
+    margin: 20px auto;
     padding: 0 16px;
 }
 
@@ -259,13 +271,6 @@ footer {
     left: 0;
     content: '';
 }
-
-/* .cr-overlay {
-    background: url(../img/mask.png) 100% 100%;
-    background-repeat: no-repeat;
-    position: relative;
-    background-position: center;
-} */
 
 .croppie-container .cr-viewport, .croppie-container .cr-resizer {
     box-shadow: 0 0 2000px 2000px rgba(247, 76, 18, 0.2);
@@ -527,6 +532,9 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .logo-rt {
+        position: relative;
+    }
     .logo {
         font-size: 22px;
         position: relative;

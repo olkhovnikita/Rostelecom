@@ -66,7 +66,7 @@ body {
 .container {
     max-width: 1400px;
     width: 100%;
-    margin: 20px auto;
+    margin: 50px auto;
     padding: 0 16px;
 }
 
@@ -118,15 +118,14 @@ footer {
     justify-content: center;
     flex-wrap: wrap;
     max-width: 1100px;
-    height: auto;
     margin: 0 auto;
 }
 
 .example {
     cursor: pointer;
     position: relative;
-    width: 320px;
-    height: 240px;
+    width: 315px;
+    height: 177px;
     margin: 20px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -155,18 +154,17 @@ footer {
     color: #ffffff;
 }
 
-.select-example-button {
+.commets {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
     font-family: 'Rostelecom Basis Regular', sans-serif;
-    font-size: 45px;
+    font-size: 20px;
     font-weight: 700;
     color: #ffffff;
-    background-color: #f84c12;
-    border-radius: 50px;
-    padding: 10px 80px;
-    margin-top: 30px;
 }
 
-.select-example-button-two {
+.select-example-button {
     font-family: 'Rostelecom Basis Regular', sans-serif;
     font-size: 45px;
     font-weight: 700;
@@ -194,10 +192,6 @@ footer {
 
 .personalise {
     margin-top: -15px;
-}
-
-.selected-gif {
-    width: 100%;
 }
 
 #gif {
@@ -241,6 +235,25 @@ footer {
     background-color: #9e54e6;
 }
 
+.slogantwo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 3px solid #f84c12;
+    border-radius: 10px;
+    padding: 17px 30px;
+    width: 383px;
+}
+
+.slogantwo, .slogantwo::placeholder {
+    font-family: 'Rostelecom Basis Regular', sans-serif;
+    font-size: 21.2px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #9e54e6;
+}
+
 .load-photo-button {
     font-size: 27.9px;
     padding: 12px 36px;
@@ -257,24 +270,8 @@ footer {
     overflow: hidden;
 }
 
-.cr-resizer::after {
-    display: block;
-    background: url('../img/mask.png');
-    background-size: 100% 100%;
-    width: 100%;
-    height: 100%;
-    ;
-    background-repeat: no-repeat;
-    position: absolute;
-    background-position: center;
-    top: 0;
-    left: 0;
-    content: '';
-}
-
-.croppie-container .cr-viewport, .croppie-container .cr-resizer {
-    box-shadow: 0 0 2000px 2000px rgba(247, 76, 18, 0.2);
-    ;
+.cr-resizer {
+    border: none !important;
 }
 
 .max-length {
@@ -424,6 +421,13 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 22px;
+}
+
+.topurl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .gif-ready-download-btn {
@@ -450,9 +454,12 @@ footer {
     font-size: 31px;
 }
 
-.gif-container {
-    max-width: 100%;
-    max-height: 100%;
+.another-text {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-top: 38px;
+    font-size: 31px;
 }
 
 @media (max-width: 1024px) {
@@ -477,6 +484,16 @@ footer {
         font-size: 20px;
         padding: 6px 12px;
         margin-bottom: 38px;
+    }
+    textarea {
+        font-family: 'Rostelecom Basis Regular', sans-serif;
+        font-size: 45px;
+        font-weight: 700;
+        color: #ffffff;
+        background-color: #f84c12;
+        border-radius: 50px;
+        padding: 10px 80px;
+        margin-top: 30px;
     }
     .load-photo-button {
         font-size: 16px;
@@ -593,4 +610,103 @@ footer {
     .personalise {
         margin: 0;
     }
+}
+
+/* BUTTON CSS*/
+
+.progress-button {
+    display: inline-block;
+    font-size: 24px;
+    color: #fff !important;
+    text-decoration: none !important;
+    padding: 14px 60px;
+    line-height: 1;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 1px 1px #ccc;
+    border-radius: 2px;
+    background-color: #51b7e6;
+    background-image: -webkit-linear-gradient(top, #51b7e6, #4dafdd);
+    background-image: -moz-linear-gradient(top, #51b7e6, #4dafdd);
+    background-image: linear-gradient(top, #51b7e6, #4dafdd);
+}
+
+/* Hide the original text of the button. Then the loading or finished
+   text will be shown in the :after element above it. */
+
+.progress-button.in-progress, .progress-button.finished {
+    color: transparent !important;
+}
+
+.progress-button.in-progress:after, .progress-button.finished:after {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    top: 0;
+    padding-top: inherit;
+    color: #fff !important;
+    left: 0;
+}
+
+/* If the .in-progress class is set on the button, show the
+   contents of the data-loading attribute on the butotn */
+
+.progress-button.in-progress:after {
+    content: attr(data-loading);
+}
+
+/* The same goes for the .finished class */
+
+.progress-button.finished:after {
+    content: attr(data-finished);
+}
+
+/* The colorful bar that grows depending on the progress */
+
+.progress-button .tz-bar {
+    background-color: #e667c0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    position: absolute;
+    z-index: 1;
+    border-radius: 0 0 2px 2px;
+    -webkit-transition: width 0.5s, height 0.5s;
+    -moz-transition: width 0.5s, height 0.5s;
+    transition: width 0.5s, height 0.5s;
+}
+
+/* The bar can be either horizontal, or vertical */
+
+.progress-button .tz-bar.background-horizontal {
+    height: 100%;
+    border-radius: 2px;
+}
+
+.progress-button .tz-bar.background-vertical {
+    height: 0;
+    top: 0;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.progress-button.red {
+    font-family: 'Rostelecom Basis Regular', sans-serif;
+    font-size: 45px;
+    font-weight: 700;
+    border-radius: 50px;
+    padding: 10px 80px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #f84c12;
+    background-image: -webkit-linear-gradient(top, #f84c12, #f84c12);
+    background-image: -moz-linear-gradient(top, #f84c12, #f84c12);
+    background-image: linear-gradient(top, #f84c12, #f84c12);
+}
+
+.progress-button.red .tz-bar {
+    background-color: #6876b4;
 }

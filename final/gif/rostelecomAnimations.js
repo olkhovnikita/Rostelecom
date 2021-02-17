@@ -9,8 +9,9 @@ var Scene = {
     m_canvasW: 1000,
     m_canvasH: 750,
     m_canvasElementId: 'gif',
-    m_recoderWorcers: 5,
+    m_recoderWorcers: 8,
     m_recoderQuality: 2,
+    m_dither: '',
 
     m_face: {},
     m_faceSrc: 'face.png',
@@ -110,7 +111,7 @@ var Scene = {
             self.m_gifRecorder = new GIF({
                 workers: self.m_recoderWorcers,
                 quality: self.m_recoderQuality,
-                //dither: 'FloydSteinberg'
+                dither: self.m_dither
             });
         
             setInterval(function(){
@@ -259,6 +260,8 @@ CheerScene.m_maxTextW = 450;
 CheerScene.m_canvasFont = "bold 40px Arial";
 CheerScene.m_canvastextAlign = "center";
 CheerScene.m_canvasFillStyle = "#9c27b0";
+CheerScene.m_recoderQuality = 1;
+CheerScene.m_dither = "Atkinson-serpentine";
 
 CheerScene.initStages = function(){
     this.m_stages.push((this.m_framesCount) / 4);

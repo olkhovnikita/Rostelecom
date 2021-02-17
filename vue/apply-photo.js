@@ -57,11 +57,11 @@ var applyPhoto = Vue.component('apply-photo', ({
                     face.onload = function() {
                         canvas.width = face.width;
                         canvas.height = face.height;
-                        ctx.save();
                         ctx.drawImage(mask, 0, 0, face.width, face.height, 0, 0 , canvas.width, canvas.height);
-                        ctx.restore();
+                        ctx.save();
                         ctx.globalCompositeOperation = 'destination-atop';
                         ctx.drawImage(face, 0, 0);
+                        ctx.restore();
                         canvas.toBlob(function(blob) {
                             this.sendPost(blob);
                             });

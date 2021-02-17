@@ -61,17 +61,17 @@ var applyPhoto = Vue.component('apply-photo', ({
                         ctx.drawImage(mask, 0, 0, face.width, face.height, 0, 0 , canvas.width, canvas.height);
                         ctx.restore();
                         ctx.drawImage(face, 0, 0);
-
-
+                        canvas.toBlob(function(blob) {
+                            this.sendPost(blob);
+                            });
+                        //this.sendPost(canvas.toBlob)
                     }
-                    face = date;
-
+                    face = data;
                 }
-               mask.src = "gif/mask.png";
-            }
-            )
+               mask.src = "final/gif/mask.png";
+            })
             // this.$emit('cropped-img', data))
-            //this.$emit('show-modal-apply', false);
+            this.$emit('show-modal-apply', false);
             var textInp = document.getElementById('photoButton');
             textInp.style.pointerEvents = 'none';
             textInp.style.backgroundColor = '#777777';

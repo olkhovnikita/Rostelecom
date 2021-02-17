@@ -6,7 +6,7 @@ var personalisation = Vue.component('person', {
                     <p class="select personalise">Персонализируй шаблон</p>
                     <p class='select change-text'>Изменить надпись</p> 
                 <div class='form-text'>
-                    <input type="text" id="figtext" :value='switchText(template)' class="slogan" maxlength='25'></input>                       
+                    <input type="text" id="figtext" :value='switchText(template)' class="slogan" :maxlength='switchLength(template)'></input>                       
                     <label for='photo' class="select-example-button load-photo-button" id="photoButton" >Загрузить фото</label>
                     <input type="file" id='photo' @change='onChange' accept="image/png, image/jpeg">
                 </div>
@@ -23,6 +23,20 @@ var personalisation = Vue.component('person', {
         
     },
     methods: {
+        switchLength: function (template) {
+            switch (template) {
+                case 'Star':
+                    return 12;
+                case 'Chirlider':
+                    return 14;
+                case 'rocket':
+                    return 21;
+                case 'city':
+                    return 29;
+                case 'Beach':
+                    return 32;
+            }
+        },
         switchText: function (template) {
             switch (template) {
                 case 'Star':

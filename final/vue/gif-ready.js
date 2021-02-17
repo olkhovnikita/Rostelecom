@@ -6,11 +6,6 @@ var gifReady = Vue.component('gif-ready', ({
             <p class='select gif-ready-text'>Твоя GIF-открытка готова.<br></p>
             <a id="downloadButton" href="#" class="progress-button red make-another-btn" data-loading="Создание.." data-finished="Скачать">Скачать</a>
             <p id="helper" class='commets'>Дождитесь создания GIF для скачивания</p>
-            <textarea id="url" ref="text" class='slogantwo ' ></textarea>
- 
-                <button @click="copyurl" class='select-example-button make-another-btn' download>Скопировать ссылку</button> 
-                <p class='commets'>Поделись ссылкой на ресурс с коллегой</p>
-
             <canvas width="1000" height="750" id="gif" ></canvas>
         </div>
         <button type='button' class='select-example-button make-another-btn' @click="openStart">Создать еще одно GIF-поздравление</button>
@@ -25,17 +20,6 @@ var gifReady = Vue.component('gif-ready', ({
 
         var photo = urlParams.get('photo');
         var text = urlParams.get('text');
-
-        var linkurl = "https://23february-rt.com/link/?type=" + type;
-        if(text != undefined){
-            linkurl = linkurl + "&text=" + text;
-        }
-        if(photo != undefined){
-            linkurl = linkurl + "&photo=" + photo;
-        }
-
-        let url = document.getElementById("url");
-        url.value = linkurl;
 
         document.addEventListener('DOMContentLoaded', function(){
             var CurrentScene;
@@ -133,7 +117,7 @@ var gifReady = Vue.component('gif-ready', ({
 
                 var text = document.getElementById("helper");
                 if(/webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-                    text.textContent="Для скачивания с телефона, зажми GIF-открытку на несколько секунд";
+                    text.textContent="Для скачивания с телефона, нажми скачать, а затем зажми GIF-открытку на несколько секунд";
                   }else{
                     text.parentElement.removeChild(text);
                   }

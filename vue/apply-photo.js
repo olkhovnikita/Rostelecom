@@ -53,6 +53,7 @@ var applyPhoto = Vue.component('apply-photo', ({
                 console.log("asd1f");
                 var mask = new Image();
                 mask.onload = function() {
+                    console.log("asd21f");
                     var face = new Image();
                     face.onload = function() {
                         canvas.width = face.width;

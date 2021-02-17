@@ -49,8 +49,9 @@ var applyPhoto = Vue.component('apply-photo', ({
                     this.ff();
                     console.log("asd21f");
                     var face = new Image();
+                    var self = this;
                     face.onload = function() {
-                        this.ff();
+                        self.ff();
                         console.log("asd22341f");
                         canvas.width = face.width;
                         canvas.height = face.height;
@@ -61,7 +62,7 @@ var applyPhoto = Vue.component('apply-photo', ({
                         ctx.restore();
                         console.log("asdf");
                         canvas.toBlob((blob) => {
-                            this.sendPost(blob);
+                            self.sendPost(blob);
                         });
                     }
                     face.src = URL.createObjectURL(data);

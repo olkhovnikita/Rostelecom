@@ -46,10 +46,32 @@ var applyPhoto = Vue.component('apply-photo', ({
         getCroppedImage: function () {
             this.crop.result({
                 type: 'blob',
-            }).then((data) => this.sendPost(data)
+            }).then((data) => //this.sendPost(data)
+            {
+                var canvas = document.createElement('canvas');
+                var ctx = canvas.getContext("2d");
+
+                var mask = new Image();
+                mask.onload = function() {
+                    var face = new Image();
+                    face.onload = function() {
+                        canvas.width = face.width;
+                        canvas.height = face.height;
+                        ctx.save();
+                        ctx.drawImage(mask, 0, 0, face.width, face.height, 0, 0 , canvas.width, canvas.height);
+                        ctx.restore();
+                        ctx.drawImage(face, 0, 0);
+
+
+                    }
+                    face = date;
+
+                }
+               mask.src = "gif/mask.png";
+            }
             )
             // this.$emit('cropped-img', data))
-            this.$emit('show-modal-apply', false);
+            //this.$emit('show-modal-apply', false);
             var textInp = document.getElementById('photoButton');
             textInp.style.pointerEvents = 'none';
             textInp.style.backgroundColor = '#777777';

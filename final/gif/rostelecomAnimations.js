@@ -60,7 +60,6 @@ var Scene = {
     drawImageRot(a_context, a_img, a_x, a_y, a_width, a_height, a_deg){
         var imgProp = a_img.width / a_img.height;
         var newHeight = a_width / imgProp; 
-        a_y -= newHeight;
 
         a_context.save();
 
@@ -100,22 +99,22 @@ var Scene = {
 
         this.initStages();
 
-        this.m_face = new Image();
-        this.m_face.src = this.m_faceSrc;
         var self = this;
+        this.m_face = new Image();
+        this.m_face.onload = function() {
+        };
+        this.m_face.src = this.m_faceSrc;
 
-        this.m_face.onload = function(){
-            console.log('Face loaded');
-            self.m_gifRecorder = new GIF({
-                workers: self.m_recoderWorcers,
-                quality: self.m_recoderQuality,
-                //dither: 'FloydSteinberg'
-            });
+        this.m_gifRecorder = new GIF({
+            workers: this.m_recoderWorcers,
+            quality: this.m_recoderQuality,
+            //dither: 'FloydSteinberg'
+        });
+    
         
-            setInterval(function(){
-                self.draw();
-            }, self.m_playTimeout);
-        }
+        setInterval(function(){
+            self.draw();
+        }, this.m_playTimeout);
     },
     start(){  
         //bg sprites array
@@ -141,8 +140,8 @@ BeachScene.m_framesCount =  55;
 BeachScene.m_halfCount =  BeachScene.m_framesCount/2;
 BeachScene.m_iterationN = 0;
 BeachScene.m_faceAngle = 0;
-BeachScene.m_facePosX = 150;
-BeachScene.m_facePosY = 420;
+BeachScene.m_facePosX = 160;
+BeachScene.m_facePosY = 290;
 BeachScene.m_faceW = 100;
 BeachScene.m_faceH = 150;
 BeachScene.m_renderStarted = false;
@@ -196,7 +195,7 @@ StarScene.m_halfCount =  StarScene.m_framesCount/2;
 StarScene.m_iterationN = 0;
 StarScene.m_faceAngle = 5;
 StarScene.m_facePosX = 500;
-StarScene.m_facePosY = 410;
+StarScene.m_facePosY = 270;
 StarScene.m_faceW = 100;
 StarScene.m_faceH = 150;
 StarScene.m_renderStarted = false;
@@ -242,8 +241,8 @@ CheerScene.m_framesCount =  11;
 CheerScene.m_halfCount =  CheerScene.m_framesCount/2;
 CheerScene.m_iterationN = 0;
 CheerScene.m_faceAngle = 5;
-CheerScene.m_facePosX = 480;
-CheerScene.m_facePosY = 370;
+CheerScene.m_facePosX = 490;
+CheerScene.m_facePosY = 240;
 CheerScene.m_faceW = 100;
 CheerScene.m_faceH = 150;
 CheerScene.m_renderStarted = false;
@@ -284,8 +283,8 @@ CheerScene.updatePositions = function(){
     }
 
     if(this.m_iterationN == 0){
-        this.m_facePosX = 480;
-        this.m_facePosY = 370;
+        this.m_facePosX = 490;
+        this.m_facePosY = 240;
     }
 }
 
@@ -297,7 +296,7 @@ RocketScene.m_halfCount =  RocketScene.m_framesCount/2;
 RocketScene.m_iterationN = 0;
 RocketScene.m_faceAngle = 5;
 RocketScene.m_facePosX = 500;
-RocketScene.m_facePosY = 190;
+RocketScene.m_facePosY = 60;
 RocketScene.m_faceW = 100;
 RocketScene.m_faceH = 150;
 RocketScene.m_renderStarted = false;
@@ -339,9 +338,10 @@ RocketScene.updatePositions = function(){
 
     if(this.m_iterationN == 0){
         this.m_facePosX = 500;
-        this.m_facePosY = 190;
+        this.m_facePosY = 60;
     }
 }
+
 RocketScene.grabFrame = function(){
     if(!(this.m_iterationN % 3)) this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout, copy: true});
 }
@@ -353,7 +353,7 @@ CityScene.m_halfCount =  CityScene.m_framesCount/2;
 CityScene.m_iterationN = 0;
 CityScene.m_faceAngle = -5;
 CityScene.m_facePosX = -150;
-CityScene.m_facePosY = 420;
+CityScene.m_facePosY = 200;
 CityScene.m_faceW = 150;
 CityScene.m_faceH = 220;
 CityScene.m_renderStarted = false;
@@ -405,6 +405,7 @@ CityScene.updatePositions = function(){
         this.m_faceAngle = -5;
     }
 }
+
 CityScene.grabFrame = function(){
     if(!(this.m_iterationN % 3)) this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout, copy: true});
 }

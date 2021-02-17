@@ -58,15 +58,18 @@ var Scene = {
     updatePositions(){      
     },
     drawImageRot(a_context, a_img, a_x, a_y, a_width, a_height, a_deg){
+        var imgProp = a_img.width / a_img.height;
+        var newHeight = a_width / imgProp; 
+
         a_context.save();
 
         var rad = a_deg * Math.PI / 180;
-        a_context.translate(a_x + a_width / 2, a_y + a_height / 2);
+        a_context.translate(a_x + a_width / 2, a_y + newHeight / 2);
 
         a_context.rotate(rad);
-        a_context.drawImage(a_img, a_width/2*(-1), a_height/2*(-1), a_width, a_height);
+        a_context.drawImage(a_img, a_width/2*(-1), newHeight/2*(-1), a_width, newHeight);
         a_context.rotate(-1 * rad)
-        a_context.translate((a_x+a_width/2) * (-1), (a_y + a_height / 2) * (-1));
+        a_context.translate((a_x+a_width/2) * (-1), (a_y + newHeight / 2) * (-1));
 
         a_context.restore();
     },

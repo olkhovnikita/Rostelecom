@@ -4,12 +4,13 @@ var gifReady = Vue.component('gif-ready', ({
     <div class='gif-ready-container'>
         <div class='gif-ready-header'>
             <p class='select gif-ready-text'>Твоя GIF-открытка готова.<br></p>
-            <textarea id="url" ref="text" class='slogantwo make-another-btn' ></textarea>
-            <div class='download-button-group'>     
-                <button @click="copyurl" class='select-example-button make-another-btn' download>Скопировать ссылку</button> 
-                
-            </div>
             <a id="downloadButton" href="#" class="progress-button red make-another-btn" data-loading="Создание.." data-finished="Скачать">Скачать</a>
+            <p id="helper" class='commets'>Дождитесь создания GIF для скачивания</p>
+            <textarea id="url" ref="text" class='slogantwo ' ></textarea>
+ 
+                <button @click="copyurl" class='select-example-button make-another-btn' download>Скопировать ссылку</button> 
+                <p class='commets'>Поделись ссылкой на ресурс с коллегой</p>
+
             <canvas width="1000" height="750" id="gif" ></canvas>
         </div>
         <button type='button' class='select-example-button make-another-btn' @click="openStart">Создать еще одно GIF-поздравление</button>
@@ -99,7 +100,7 @@ var gifReady = Vue.component('gif-ready', ({
             var gifBlob;
             controlButton.click(function(e){
                 if(clickable){
-                    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+                    if(/webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
                         console.log('mobile');
                         window.open(gifBlob, "_self");
                       }else{
@@ -127,6 +128,13 @@ var gifReady = Vue.component('gif-ready', ({
                 gifBlob = e.detail;
                 controlButton.progressFinish();
                 clickable = true;
+
+                var text = document.getElementById("helper");
+                if(/webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+                    text.textContent="newДля скачивания с телефона, зажми GIF-открытку на несколько секундtext";
+                  }else{
+                    text.parentElement.removeChild(text);
+                  }
             });        
         });
 

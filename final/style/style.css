@@ -141,6 +141,15 @@ footer {
     font-weight: 700;
     color: #ffffff;
 }
+.commets {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-family: 'Rostelecom Basis Regular', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+}
 
 .select-example-button {
     font-family: 'Rostelecom Basis Regular', sans-serif;
@@ -214,10 +223,13 @@ footer {
 }
 
 .slogantwo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     border: 3px solid #f84c12;
     border-radius: 10px;
     padding: 17px 30px;
-    margin-right: 17px;
     width: 383px;
 }
 

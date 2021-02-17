@@ -620,6 +620,32 @@ footer {
     }
 }
 
+@media(max-width: 638px) {
+    .logo-rt {
+        position: absolute;
+        width: 100%;
+        justify-content: center;
+    }
+    .logo-rt img {
+        padding-top: 8%;
+        width: 20%;
+        height: 20%;
+    }
+}
+
+@media (max-width: 366px) {
+    .logo-rt {
+        position: absolute;
+        width: 100%;
+        justify-content: center;
+    }
+    .logo-rt img {
+        padding-top: 10%;
+        width: 20%;
+        height: 20%;
+    }
+}
+
 /* BUTTON CSS*/
 
 .progress-button {

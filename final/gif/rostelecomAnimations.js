@@ -87,6 +87,7 @@ var Scene = {
             a_context.translate(a_x + a_width / 2, a_y + a_height / 2);
             a_context.rotate(rad);
             a_context.drawImage(a_img, a_width/2*(-1), a_height/2*(-1), a_width, a_height);
+            a_context.globalCompositeOperation = 'source-in';
             a_context.drawImage(a_msk, a_width/2*(-1), a_height/2*(-1), a_width, a_height);
             a_context.rotate(-1 * rad)
             a_context.translate((a_x+a_width/2) * (-1), (a_y + a_height / 2) * (-1));

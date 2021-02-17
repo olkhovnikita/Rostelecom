@@ -105,7 +105,7 @@ var Scene = {
         this.m_gifRecorder = new GIF({
             workers: this.m_recoderWorcers,
             quality: this.m_recoderQuality,
-            dither: 'FloydSteinberg'
+            //dither: 'FloydSteinberg'
         });
     
         var self = this;

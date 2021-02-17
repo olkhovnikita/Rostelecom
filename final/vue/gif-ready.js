@@ -99,6 +99,8 @@ var gifReady = Vue.component('gif-ready', ({
             var gifBlob;
             controlButton.click(function(e){
                 if(clickable){
+                    window.open(gifBlob, "_self");
+                    /*
                     const contentType = 'application/octet-stream';
                     var filename = 'rostelecom.gif',
                     e    = document.createEvent('MouseEvents'),
@@ -108,7 +110,7 @@ var gifReady = Vue.component('gif-ready', ({
                     a.href = gifBlob;
                     a.dataset.downloadurl =  [contentType, a.download, a.href].join(':');
                     e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                    a.dispatchEvent(e);
+                    a.dispatchEvent(e);*/
                 }
                 e.preventDefault();
             });

@@ -9,8 +9,8 @@ var Scene = {
     m_canvasW: 1000,
     m_canvasH: 750,
     m_canvasElementId: 'gif',
-    m_recoderWorcers: 8,
-    m_recoderQuality: 5,
+    m_recoderWorcers: 5,
+    m_recoderQuality: 2,
 
     m_face: {},
     m_faceSrc: 'face.png',
@@ -143,7 +143,7 @@ BeachScene.m_faceW = 100;
 BeachScene.m_faceH = 150;
 BeachScene.m_renderStarted = false;
 BeachScene.m_playTimeout = 70;
-BeachScene.m_recTimeout = 120,
+BeachScene.m_recTimeout = 160,
 BeachScene.m_text = '';
 BeachScene.m_textX = 450;
 BeachScene.m_textY = 140;
@@ -182,7 +182,7 @@ BeachScene.updatePositions = function(){
     }
 }
 BeachScene.grabFrame = function(){
-    if(BeachScene.m_iterationN % 2) this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout, copy: true});
+    if(!(BeachScene.m_iterationN % 3)) this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout, copy: true});
 }
 
 var StarScene = Object.create(Scene);
@@ -197,7 +197,7 @@ StarScene.m_faceW = 100;
 StarScene.m_faceH = 150;
 StarScene.m_renderStarted = false;
 StarScene.m_playTimeout = 70;
-StarScene.m_recTimeout = 120,
+StarScene.m_recTimeout = 160,
 StarScene.m_text = '';
 StarScene.m_textX = 500;
 StarScene.m_textY = 90;
@@ -228,7 +228,7 @@ StarScene.updatePositions = function(){
     }
 }
 StarScene.grabFrame = function(){
-    if(this.m_iterationN % 2) this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout, copy: true});
+    if(!(this.m_iterationN % 3)) this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout, copy: true});
 }
 
 
@@ -298,7 +298,7 @@ RocketScene.m_faceW = 100;
 RocketScene.m_faceH = 150;
 RocketScene.m_renderStarted = false;
 RocketScene.m_playTimeout = 70;
-RocketScene.m_recTimeout = 120,
+RocketScene.m_recTimeout = 160,
 RocketScene.m_text = '';
 RocketScene.m_textX = 500;
 RocketScene.m_textY = 630;
@@ -340,7 +340,7 @@ RocketScene.updatePositions = function(){
 }
 
 RocketScene.grabFrame = function(){
-    if(this.m_iterationN % 2) this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout, copy: true});
+    if(!(this.m_iterationN % 3)) this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout, copy: true});
 }
 
 var CityScene = Object.create(Scene);
@@ -350,12 +350,12 @@ CityScene.m_halfCount =  CityScene.m_framesCount/2;
 CityScene.m_iterationN = 0;
 CityScene.m_faceAngle = -5;
 CityScene.m_facePosX = -150;
-CityScene.m_facePosY = 230;
+CityScene.m_facePosY = 200;
 CityScene.m_faceW = 150;
 CityScene.m_faceH = 220;
 CityScene.m_renderStarted = false;
 CityScene.m_playTimeout = 70;
-CityScene.m_recTimeout = 120,
+CityScene.m_recTimeout = 160,
 CityScene.m_text = '';
 CityScene.m_textX = 500;
 CityScene.m_textY = 80;
@@ -404,5 +404,5 @@ CityScene.updatePositions = function(){
 }
 
 CityScene.grabFrame = function(){
-    if(this.m_iterationN % 2) this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout, copy: true});
+    if(!(this.m_iterationN % 3)) this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout, copy: true});
 }

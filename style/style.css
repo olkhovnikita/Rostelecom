@@ -65,7 +65,7 @@ body {
     bottom: 0;
     width: 300px;
     height: auto;
-    margin-right: 10px;
+    margin-right: -100px;
 }
 
 .container {

@@ -34,11 +34,11 @@
 </head>
 
 <body>
-    <div class="logo-rt">
-        <img src="img/logo.png">
-    </div>
+    
     <div class="container">
+        
         <div id="content">
+            
             <my-header></my-header>
             <main-content v-if="page == 'main-content'" @page-number="page = $event"
                 @template-number="templateId = $event" :template="templateId"></main-content>
@@ -57,6 +57,9 @@
 
         </div>
         <footer>
+            <div class="logo-rt">
+                <img src="img/logo.png">
+            </div>
         </footer>
 
         <script src="vue/top-content.js"></script>

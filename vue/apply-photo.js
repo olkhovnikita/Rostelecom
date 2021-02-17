@@ -69,11 +69,11 @@ var applyPhoto = Vue.component('apply-photo', ({
                 }
                mask.src = "final/gif/mask.png";
             })
-         /*
+         
             this.$emit('show-modal-apply', false);
             var textInp = document.getElementById('photoButton');
             textInp.style.pointerEvents = 'none';
-            textInp.style.backgroundColor = '#777777';*/
+            textInp.style.backgroundColor = '#777777';
   
         }
     },

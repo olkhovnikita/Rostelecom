@@ -53,14 +53,19 @@ body {
 
 .logo-rt {
     position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .logo-rt img {
-    bottom: 0;
+    position: absolute;
     right: 0;
-    width: 10%;
+    bottom: 0;
+    width: 300px;
     height: auto;
-    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .container {

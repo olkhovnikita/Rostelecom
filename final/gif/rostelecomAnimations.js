@@ -9,6 +9,8 @@ var Scene = {
     m_canvasW: 1000,
     m_canvasH: 750,
     m_canvasElementId: 'gif',
+    m_recoderWorcers: 2,
+    m_recoderQuality: 10,
 
     m_face: {},
     m_faceSrc: 'face.png',
@@ -77,8 +79,8 @@ var Scene = {
         this.m_gifRecorder.on('progress', function(progress) {
             window.dispatchEvent( new CustomEvent('renderProgress', {'detail': progress * 100 }) );
         });
-        this.m_gifRecorder.render();
         this.m_renderStarted = true;
+        this.m_gifRecorder.render();
     },
     startPlay(){
 
@@ -96,8 +98,9 @@ var Scene = {
         this.m_face.src = this.m_faceSrc;
 
         this.m_gifRecorder = new GIF({
-            workers: 4,
-            quality: 30
+            workers: this.m_recoderWorcers,
+            quality: this.m_recoderQuality,
+            //dither: 'FloydSteinberg'
         });
     
         var self = this;
@@ -126,7 +129,7 @@ var Scene = {
 var BeachScene = Object.create(Scene);
 
 BeachScene.m_framesCount =  55;
-BeachScene.m_halfCount =  this.m_framesCount/2;
+BeachScene.m_halfCount =  BeachScene.m_framesCount/2;
 BeachScene.m_iterationN = 0;
 BeachScene.m_faceAngle = 0;
 BeachScene.m_facePosX = 140;
@@ -136,7 +139,7 @@ BeachScene.m_faceH = 150;
 BeachScene.m_renderStarted = false;
 BeachScene.m_playTimeout = 50;
 BeachScene.m_recTimeout = 150,
-BeachScene.m_text = 'Получай удовольствие от удаленки';
+BeachScene.m_text = '';
 BeachScene.m_textX = 450;
 BeachScene.m_textY = 140;
 BeachScene.m_canvasFont = "bold 21px Arial";
@@ -171,5 +174,235 @@ BeachScene.updatePositions = function(){
         this.m_faceAngle += angleDelta;
     }if(this.m_iterationN >= (this.m_framesCount - 18)){
         this.m_faceAngle = 0;
+    }
+}
+
+var StarScene = Object.create(Scene);
+
+StarScene.m_framesCount =  43;
+StarScene.m_halfCount =  StarScene.m_framesCount/2;
+StarScene.m_iterationN = 0;
+StarScene.m_faceAngle = 5;
+StarScene.m_facePosX = 500;
+StarScene.m_facePosY = 270;
+StarScene.m_faceW = 100;
+StarScene.m_faceH = 150;
+StarScene.m_renderStarted = false;
+StarScene.m_playTimeout = 50;
+StarScene.m_recTimeout = 150,
+StarScene.m_text = '';
+StarScene.m_textX = 500;
+StarScene.m_textY = 90;
+StarScene.m_canvasFont = "bold 40px Arial";
+StarScene.m_canvastextAlign = "center";
+StarScene.m_canvasFillStyle = "#9c27b0";
+
+StarScene.initStages = function(){
+    
+}
+StarScene.updatePositions = function(){
+    //update iterations
+    if(this.m_iterationN == this.m_framesCount -1) this.m_iterationN = 0;
+    else this.m_iterationN++;
+
+    var angleConst = 20;
+    //update face angle amd pos
+    if(this.m_iterationN >= 0 && this.m_iterationN < this.m_halfCount){
+        this.m_facePosX += 1;
+        this.m_faceAngle += 1;
+    }else if(this.m_iterationN >= this.m_halfCount && this.m_iterationN < this.m_framesCount){
+        this.m_facePosX -= 1;
+        this.m_faceAngle -= 1;
+    }
+    if(this.m_iterationN == 0) {
+        this.m_faceAngle = 5;
+        this.m_facePosX = 500;
+    }
+}
+
+
+var CheerScene = Object.create(Scene);
+
+CheerScene.m_framesCount =  11;
+CheerScene.m_halfCount =  CheerScene.m_framesCount/2;
+CheerScene.m_iterationN = 0;
+CheerScene.m_faceAngle = 5;
+CheerScene.m_facePosX = 490;
+CheerScene.m_facePosY = 240;
+CheerScene.m_faceW = 100;
+CheerScene.m_faceH = 150;
+CheerScene.m_renderStarted = false;
+CheerScene.m_playTimeout = 70;
+CheerScene.m_recTimeout = 70,
+CheerScene.m_text = '';
+CheerScene.m_textX = 500;
+CheerScene.m_textY = 160;
+CheerScene.m_canvasFont = "bold 40px Arial";
+CheerScene.m_canvastextAlign = "center";
+CheerScene.m_canvasFillStyle = "#9c27b0";
+
+CheerScene.initStages = function(){
+    this.m_stages.push((this.m_framesCount) / 4);
+    this.m_stages.push((this.m_framesCount) / 4 * 2);
+    this.m_stages.push((this.m_framesCount) / 4 * 3);
+    this.m_stages.push((this.m_framesCount) / 4 * 4);
+}
+CheerScene.updatePositions = function(){
+    //update iterations
+    if(this.m_iterationN == this.m_framesCount -1) this.m_iterationN = 0;
+    else this.m_iterationN++;
+
+    var deltaFaceX = 2,
+        deltaFaceY = 3;
+    if(this.m_iterationN >= 0 && this.m_iterationN < this.m_stages[0]){
+        this.m_facePosY -= deltaFaceY;
+        this.m_facePosX -= deltaFaceX;
+    }else if(this.m_iterationN >= this.m_stages[0] && this.m_iterationN < this.m_stages[1]){
+        this.m_facePosY += deltaFaceY;
+        this.m_facePosX -= deltaFaceX;
+    }else if(this.m_iterationN >= this.m_stages[1] && this.m_iterationN < this.m_stages[2]){
+        this.m_facePosY -= deltaFaceY;
+        this.m_facePosX += deltaFaceX;
+    }else if(this.m_iterationN >= this.m_stages[2] && this.m_iterationN < this.m_stages[3]){
+        this.m_facePosY += deltaFaceY;
+        this.m_facePosX += deltaFaceX;
+    }
+
+    if(this.m_iterationN == 0){
+        this.m_facePosX = 490;
+        this.m_facePosY = 240;
+    }
+}
+
+
+var RocketScene = Object.create(Scene);
+
+RocketScene.m_framesCount =  41;
+RocketScene.m_halfCount =  RocketScene.m_framesCount/2;
+RocketScene.m_iterationN = 0;
+RocketScene.m_faceAngle = 5;
+RocketScene.m_facePosX = 500;
+RocketScene.m_facePosY = 60;
+RocketScene.m_faceW = 100;
+RocketScene.m_faceH = 150;
+RocketScene.m_renderStarted = false;
+RocketScene.m_playTimeout = 70;
+RocketScene.m_recTimeout = 240,
+RocketScene.m_text = '';
+RocketScene.m_textX = 500;
+RocketScene.m_textY = 630;
+RocketScene.m_canvasFont = "600 70px Tahoma";
+RocketScene.m_canvastextAlign = "center";
+RocketScene.m_canvasFillStyle = "#fff";
+
+RocketScene.initStages = function(){
+    this.m_stages.push((this.m_framesCount) / 4);
+    this.m_stages.push((this.m_framesCount) / 4 * 2);
+    this.m_stages.push((this.m_framesCount) / 4 * 3);
+    this.m_stages.push((this.m_framesCount) / 4 * 4);
+}
+RocketScene.updatePositions = function(){
+    //update iterations
+    if(this.m_iterationN == this.m_framesCount -1) this.m_iterationN = 0;
+    else this.m_iterationN++;
+
+    var deltaFaceX = 1.5,
+        deltaFaceY = 3;
+    if(this.m_iterationN >= 0 && this.m_iterationN < this.m_stages[0]){
+        this.m_facePosY += deltaFaceY;
+        this.m_facePosX += deltaFaceX;
+    }else if(this.m_iterationN >= this.m_stages[0] && this.m_iterationN < this.m_stages[1]){
+        this.m_facePosY -= deltaFaceY;
+        this.m_facePosX -= deltaFaceX;
+    }else if(this.m_iterationN >= this.m_stages[1] && this.m_iterationN < this.m_stages[2]){
+        this.m_facePosY += deltaFaceY;
+        this.m_facePosX += deltaFaceX * 2;
+    }else if(this.m_iterationN >= this.m_stages[2] && this.m_iterationN < this.m_stages[3]){
+        this.m_facePosY -= deltaFaceY;
+        this.m_facePosX -= deltaFaceX * 2;
+    }
+
+    if(this.m_iterationN == 0){
+        this.m_facePosX = 500;
+        this.m_facePosY = 60;
+    }
+}
+
+var CityScene = Object.create(Scene);
+
+CityScene.m_framesCount =  75;
+CityScene.m_halfCount =  CityScene.m_framesCount/2;
+CityScene.m_iterationN = 0;
+CityScene.m_faceAngle = -5;
+CityScene.m_facePosX = -150;
+CityScene.m_facePosY = 230;
+CityScene.m_faceW = 150;
+CityScene.m_faceH = 220;
+CityScene.m_renderStarted = false;
+CityScene.m_playTimeout = 70;
+CityScene.m_recTimeout = 200,
+CityScene.m_text = '';
+CityScene.m_textX = 500;
+CityScene.m_textY = 80;
+CityScene.m_canvasFont = "600 50px Tahoma";
+CityScene.m_canvastextAlign = "center";
+CityScene.m_canvasFillStyle = "#fff";
+
+CityScene.initStages = function(){
+    this.m_stages.push(6);
+    this.m_stages.push(10);
+    this.m_stages.push(20);
+    this.m_stages.push(30);
+    this.m_stages.push(40);
+    this.m_stages.push(50);
+    this.m_stages.push(60);
+}
+CityScene.updatePositions = function(){
+    //update iterations
+    if(this.m_iterationN == this.m_framesCount -1) this.m_iterationN = 0;
+    else this.m_iterationN++;
+
+    var deltaFaceX = 1.5,
+        deltaFaceY = 3;
+    if(this.m_iterationN >= 0 && this.m_iterationN < this.m_stages[0]){
+        this.m_facePosX += 65;
+    }else if(this.m_iterationN >= this.m_stages[0] && this.m_iterationN < this.m_stages[1]){
+        this.m_facePosX += 20;
+    }else if(this.m_iterationN >= this.m_stages[1] && this.m_iterationN <= this.m_stages[2]){
+        this.m_faceAngle += 1;
+    }else if(this.m_iterationN >= this.m_stages[2] && this.m_iterationN <= this.m_stages[3]){
+        this.m_faceAngle -= 1;
+    }else if(this.m_iterationN >= this.m_stages[3] && this.m_iterationN <= this.m_stages[4]){
+        this.m_faceAngle += 1;
+    }else if(this.m_iterationN >= this.m_stages[4] && this.m_iterationN <= this.m_stages[5]){
+        this.m_faceAngle -= 1;
+    }else if(this.m_iterationN >= this.m_stages[5] && this.m_iterationN <= this.m_stages[6]){
+        this.m_faceAngle += 1;
+    }else if(this.m_iterationN >= this.m_stages[6]){
+        this.m_facePosX += 120;
+    }
+
+    if(this.m_iterationN == 0){
+        this.m_facePosX = -150;
+        this.m_faceAngle = -5;
+    }
+}
+
+CityScene.draw = function(){
+    //bg
+    this.m_context.drawImage(this.m_bgFrames[this.m_iterationN], 0, 0, this.m_canvasW, this.m_canvasH);
+    //text
+    this.m_context.fillText(this.m_text, this.m_textX, this.m_textY)
+    //face
+    this.drawImageRot(this.m_context, this.m_face, this.m_facePosX, this.m_facePosY, this.m_faceW, this.m_faceH, this.m_faceAngle);
+    
+    this.updatePositions();
+
+    if(!this.m_renderStarted) {
+        if(this.m_iterationN % 2) this.m_gifRecorder.addFrame(this.m_canvas, {delay: this.m_recTimeout});
+
+        if(this.m_iterationN == this.m_framesCount - 1){
+            this.renderGif();
+        }
     }
 }

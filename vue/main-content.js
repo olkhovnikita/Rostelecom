@@ -17,7 +17,7 @@ var mainContent = Vue.component('main-content', ({
     methods: {
         setSceneId: function (data) {
             this.$emit('template-number', data);
-            SCENE_PATH ='jiblab/' + data + '.json'
+            SCENE_PATH = data; 
         },
     }
 }))

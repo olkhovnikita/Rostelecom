@@ -37,7 +37,30 @@ var gifReady = Vue.component('gif-ready', ({
         url.value = linkurl;
 
         document.addEventListener('DOMContentLoaded', function(){
-            var CurrentScene = BeachScene;
+            var CurrentScene;
+            console.log(type);
+            switch(type){
+                case 'Chirlider':
+                    CurrentScene = CheerScene;
+                    CurrentScene.m_bgPath = 'gif/bg/cheer'
+                    break;
+                case 'Star':
+                    CurrentScene = StarScene;
+                    CurrentScene.m_bgPath = 'gif/bg/star'
+                    break;
+                case 'rocket':
+                    CurrentScene = RocketScene;
+                    CurrentScene.m_bgPath = 'gif/bg/rocket'
+                    break;
+                case 'city':
+                    CurrentScene = CityScene;
+                    CurrentScene.m_bgPath = 'gif/bg/city'
+                    break;
+                case 'Beach':
+                    CurrentScene = BeachScene;
+                    CurrentScene.m_bgPath = 'gif/bg/beach';
+                    break;
+            }
 
             if(text != undefined)
             {
@@ -48,16 +71,20 @@ var gifReady = Vue.component('gif-ready', ({
                 CurrentScene.m_text = 'Полный вперед!';
             }
 
-            CurrentScene.m_bgPath = 'gif/bg';
+        
             CurrentScene.m_cavasElementId = "gif";
             
             if(photo != undefined){
                 CurrentScene.m_faceSrc =  "https://23february-rt.com/uploads/" + photo + ".png";
             }
             else {
-                CurrentScene.m_faceSrc =  'img/head2.png';
+                if(type === 'Chirlider') {
+                    CurrentScene.m_faceSrc =  'img/headGirl.png';
+                }
+                else {
+                    CurrentScene.m_faceSrc =  'img/head2.png';
+                }
             }
-            
             CurrentScene.m_canvasW =  1000;
             CurrentScene.m_canvasH =  750;        
             CurrentScene.start();

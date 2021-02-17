@@ -21,17 +21,6 @@ var gifReady = Vue.component('gif-ready', ({
         var photo = urlParams.get('photo');
         var text = urlParams.get('text');
 
-        var linkurl = "https://23february-rt.com/link/?type=" + type;
-        if(text != undefined){
-            linkurl = linkurl + "&text=" + text;
-        }
-        if(photo != undefined){
-            linkurl = linkurl + "&photo=" + photo;
-        }
-
-        let url = document.getElementById("url");
-        url.value = linkurl;
-
         document.addEventListener('DOMContentLoaded', function(){
             var CurrentScene;
             console.log(type);

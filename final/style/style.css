@@ -51,6 +51,18 @@ body {
     min-height: 100vh;
 }
 
+.logo-rt {
+    position: absolute;
+}
+
+.logo-rt img {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+}
+
 .container {
     max-width: 1400px;
     width: 100%;
@@ -141,6 +153,7 @@ footer {
     font-weight: 700;
     color: #ffffff;
 }
+
 .commets {
     text-align: center;
     margin-top: 10px;
@@ -256,6 +269,7 @@ footer {
     height: 1px;
     overflow: hidden;
 }
+
 .cr-resizer {
     border: none !important;
 }
@@ -410,7 +424,6 @@ footer {
     margin-bottom: 22px;
 }
 
-
 .topurl {
     display: flex;
     justify-content: space-between;
@@ -441,7 +454,7 @@ footer {
     font-size: 31px;
 }
 
-.another-text{
+.another-text {
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
@@ -494,7 +507,6 @@ footer {
         display: block;
         text-align: center;
     }
-
     .place-face {
         font-size: 30px;
     }
@@ -537,6 +549,9 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .logo-rt {
+        position: relative;
+    }
     .logo {
         font-size: 22px;
         position: relative;
@@ -558,7 +573,6 @@ footer {
         display: block;
         text-align: center;
     }
-
     .place-face {
         font-size: 20px;
     }
@@ -595,41 +609,36 @@ footer {
     }
     .personalise {
         margin: 0;
-    }   
-    
+    }
 }
 
-
 /* BUTTON CSS*/
-.progress-button{
+
+.progress-button {
     display: inline-block;
-    font-size:24px;
-    color:#fff !important;
+    font-size: 24px;
+    color: #fff !important;
     text-decoration: none !important;
-    padding:14px 60px;
-    line-height:1;
+    padding: 14px 60px;
+    line-height: 1;
     overflow: hidden;
-    position:relative;
-
-    box-shadow:0 1px 1px #ccc;
-    border-radius:2px;
-
+    position: relative;
+    box-shadow: 0 1px 1px #ccc;
+    border-radius: 2px;
     background-color: #51b7e6;
-    background-image:-webkit-linear-gradient(top, #51b7e6, #4dafdd);
-    background-image:-moz-linear-gradient(top, #51b7e6, #4dafdd);
-    background-image:linear-gradient(top, #51b7e6, #4dafdd);
+    background-image: -webkit-linear-gradient(top, #51b7e6, #4dafdd);
+    background-image: -moz-linear-gradient(top, #51b7e6, #4dafdd);
+    background-image: linear-gradient(top, #51b7e6, #4dafdd);
 }
 
 /* Hide the original text of the button. Then the loading or finished
    text will be shown in the :after element above it. */
 
-.progress-button.in-progress,
-.progress-button.finished{
-    color:transparent !important;
+.progress-button.in-progress, .progress-button.finished {
+    color: transparent !important;
 }
 
-.progress-button.in-progress:after,
-.progress-button.finished:after{
+.progress-button.in-progress:after, .progress-button.finished:after {
     position: absolute;
     z-index: 2;
     width: 100%;
@@ -644,29 +653,27 @@ footer {
 /* If the .in-progress class is set on the button, show the
    contents of the data-loading attribute on the butotn */
 
-.progress-button.in-progress:after{
-    content:attr(data-loading);
+.progress-button.in-progress:after {
+    content: attr(data-loading);
 }
 
 /* The same goes for the .finished class */
 
-.progress-button.finished:after{
-    content:attr(data-finished);
+.progress-button.finished:after {
+    content: attr(data-finished);
 }
 
 /* The colorful bar that grows depending on the progress */
 
-.progress-button .tz-bar{
-    background-color:#e667c0;
-    height:3px;
-    bottom:0;
-    left:0;
-    width:0;
-    position:absolute;
-    z-index:1;
-
-    border-radius:0 0 2px 2px;
-
+.progress-button .tz-bar {
+    background-color: #e667c0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    position: absolute;
+    z-index: 1;
+    border-radius: 0 0 2px 2px;
     -webkit-transition: width 0.5s, height 0.5s;
     -moz-transition: width 0.5s, height 0.5s;
     transition: width 0.5s, height 0.5s;
@@ -674,19 +681,19 @@ footer {
 
 /* The bar can be either horizontal, or vertical */
 
-.progress-button .tz-bar.background-horizontal{
-    height:100%;
-    border-radius:2px;
+.progress-button .tz-bar.background-horizontal {
+    height: 100%;
+    border-radius: 2px;
 }
 
-.progress-button .tz-bar.background-vertical{
-    height:0;
-    top:0;
-    width:100%;
-    border-radius:2px;
+.progress-button .tz-bar.background-vertical {
+    height: 0;
+    top: 0;
+    width: 100%;
+    border-radius: 2px;
 }
 
-.progress-button.red{
+.progress-button.red {
     font-family: 'Rostelecom Basis Regular', sans-serif;
     font-size: 45px;
     font-weight: 700;
@@ -695,11 +702,11 @@ footer {
     margin-top: 10px;
     margin-bottom: 20px;
     background-color: #f84c12;
-    background-image:-webkit-linear-gradient(top, #f84c12, #f84c12);
-    background-image:-moz-linear-gradient(top, #f84c12, #f84c12);
-    background-image:linear-gradient(top, #f84c12, #f84c12);
+    background-image: -webkit-linear-gradient(top, #f84c12, #f84c12);
+    background-image: -moz-linear-gradient(top, #f84c12, #f84c12);
+    background-image: linear-gradient(top, #f84c12, #f84c12);
 }
 
-.progress-button.red .tz-bar{
-    background-color:#6876b4;
+.progress-button.red .tz-bar {
+    background-color: #6876b4;
 }

@@ -117,7 +117,7 @@ var gifReady = Vue.component('gif-ready', ({
 
                 var text = document.getElementById("helper");
                 if(/webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-                    text.textContent="Для скачивания с телефона, нажми скачать, а затем зажми GIF-открытку на несколько секунд";
+                    text.textContent="Для скачивания с телефона нажми скачать, а затем зажми GIF-открытку на несколько секунд";
                   }else{
                     text.parentElement.removeChild(text);
                   }

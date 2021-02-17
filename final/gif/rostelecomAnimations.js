@@ -24,6 +24,7 @@ var Scene = {
     m_faceW: 100,
     m_faceH: 150,
     m_renderStarted: false,
+    m_maxTextW: 500,
 
     m_playTimeout: 50,
     m_recTimeout: 150,
@@ -41,7 +42,7 @@ var Scene = {
         //bg
         this.m_context.drawImage(this.m_bgFrames[this.m_iterationN], 0, 0, this.m_canvasW, this.m_canvasH);
         //text
-        this.m_context.fillText(this.m_text, this.m_textX, this.m_textY)
+        this.m_context.fillText(this.m_text, this.m_textX, this.m_textY, this.m_maxTextW)
         //face
         this.drawImageRot(this.m_context, this.m_face, this.m_facePosX, this.m_facePosY, this.m_faceW, this.m_faceH, this.m_faceAngle);
         
@@ -149,9 +150,10 @@ BeachScene.m_renderStarted = false;
 BeachScene.m_playTimeout = 70;
 BeachScene.m_recTimeout = 160,
 BeachScene.m_text = '';
-BeachScene.m_textX = 450;
+BeachScene.m_textX = 455;
 BeachScene.m_textY = 140;
-BeachScene.m_canvasFont = "bold 21px Arial";
+BeachScene.m_maxTextW = 380;
+BeachScene.m_canvasFont = "bold 20px Arial";
 BeachScene.m_canvastextAlign = "center";
 BeachScene.m_canvasFillStyle = "#9c27b0";
 
@@ -203,8 +205,9 @@ StarScene.m_renderStarted = false;
 StarScene.m_playTimeout = 70;
 StarScene.m_recTimeout = 160,
 StarScene.m_text = '';
-StarScene.m_textX = 500;
+StarScene.m_textX = 495;
 StarScene.m_textY = 90;
+StarScene.m_maxTextW = 380
 StarScene.m_canvasFont = "bold 40px Arial";
 StarScene.m_canvastextAlign = "center";
 StarScene.m_canvasFillStyle = "#9c27b0";
@@ -252,6 +255,7 @@ CheerScene.m_recTimeout = 70,
 CheerScene.m_text = '';
 CheerScene.m_textX = 500;
 CheerScene.m_textY = 160;
+CheerScene.m_maxTextW = 450;
 CheerScene.m_canvasFont = "bold 40px Arial";
 CheerScene.m_canvastextAlign = "center";
 CheerScene.m_canvasFillStyle = "#9c27b0";
@@ -306,6 +310,7 @@ RocketScene.m_recTimeout = 160,
 RocketScene.m_text = '';
 RocketScene.m_textX = 500;
 RocketScene.m_textY = 630;
+RocketScene.m_maxTextW = 900;
 RocketScene.m_canvasFont = "600 70px Tahoma";
 RocketScene.m_canvastextAlign = "center";
 RocketScene.m_canvasFillStyle = "#fff";
@@ -361,8 +366,9 @@ CityScene.m_playTimeout = 70;
 CityScene.m_recTimeout = 160,
 CityScene.m_text = '';
 CityScene.m_textX = 500;
-CityScene.m_textY = 80;
-CityScene.m_canvasFont = "600 50px Tahoma";
+CityScene.m_textY = 120;
+CityScene.m_maxTextW = 900;
+CityScene.m_canvasFont = "600 70px Tahoma";
 CityScene.m_canvastextAlign = "center";
 CityScene.m_canvasFillStyle = "#fff";
 

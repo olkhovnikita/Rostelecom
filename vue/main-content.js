@@ -2,7 +2,7 @@ var mainContent = Vue.component('main-content', ({
     props: ['template'],
     template: `       
      <div class="content">
-        <p class="select">Выбери понравившийся шаблон</br> и нажми на кнопку продолжить</p>
+        <p class="select">Выбери понравившийся шаблон</br> и нажми на кнопку «Продолжить»</p>
         <div class="examples">
             <div style="background-image:url(gif/star.gif)" :class="template=='Star' ? 'example active' : 'example'" @click="setSceneId('Star')"></div>
             <div style="background-image:url(gif/chir.gif)" :class="template=='Chirlider' ? 'example active' : 'example'" @click="setSceneId('Chirlider')"></div>

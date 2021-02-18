@@ -89,6 +89,7 @@ var gifReady = Vue.component('gif-ready', ({
                         console.log('mobile');
                         window.open(gifBlob, "_self");
                       }else{
+                          /*
                         console.log('pc');
                         const contentType = 'application/octet-stream';
                         var filename = 'rostelecom.gif',
@@ -99,7 +100,17 @@ var gifReady = Vue.component('gif-ready', ({
                         a.href = gifBlob;
                         a.dataset.downloadurl =  [contentType, a.download, a.href].join(':');
                         e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                        a.dispatchEvent(e);
+                        a.dispatchEvent(e);*/
+                        //const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.style.display = 'none';
+                        a.href = gifBlob;
+                        // the filename you want
+                        a.download = 'rostelecom.gif';
+                        document.body.appendChild(a);
+                        a.click();
+                        window.URL.revokeObjectURL(gifBlob);
+                        //alert('your file has downloaded!'); // or you know, something with better UX...
                       }                           
                 }
                 e.preventDefault();

@@ -51,6 +51,10 @@ body {
     min-height: 100vh;
 }
 
+.footer {
+    background: #ffffff;
+}
+
 .logo-rt {
     position: absolute;
     display: flex;
@@ -83,6 +87,7 @@ body {
 
 footer {
     position: relative;
+    margin-top: 47px;
 }
 
 .logo {

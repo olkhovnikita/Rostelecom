@@ -5,7 +5,7 @@ var noPhoto = Vue.component('no-photo', ({
         <div class="modal-no-photo">
             <div class="modal-no-photo-header">
                 <img src="img/smile.png" class="modal-no-photo-smile" alt='sad smile'>
-                <p class="modal-no-photo-text"> Не забывай добавить фото!<br>Продолжить без него?</p>
+                <p class="modal-no-photo-text"> Не забывай добавить фото!</p>
             </div>
             <div class="modal-no-photo-footer">
                 <button type="button" class="back-button" @click='back'>Вернуться к редактированию</button>

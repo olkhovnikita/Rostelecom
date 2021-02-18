@@ -11,7 +11,7 @@ var mainContent = Vue.component('main-content', ({
             <div style="background-image:url(gif/beach.gif)" :class="template=='Beach' ? 'example active' : 'example'" @click="setSceneId('Beach')"></div>
         </div>
         <div class='select-button'>
-            <button type='button' class='select-example-button' @click="$emit('page-number', 'person')" :disabled ='!template'>продолжить</button>
+            <button type='button' class='select-example-button' @click="$emit('page-number', 'person')" :disabled ='!template'>Продолжить</button>
         </div>
     </div>`,
     methods: {

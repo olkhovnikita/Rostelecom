@@ -327,13 +327,21 @@ footer {
 }
 
 .modal-footer {
-    height: 185px;
+    height: 205px;
     background-color: #ffffff;
 }
 
 .place-face {
     font-family: 'Rostelecom Basis Reguar', sans-serif;
     font-size: 40px;
+    font-weight: 400;
+    color: #000000;
+    text-align: center;
+}
+
+.place-face-small {
+    font-family: 'Rostelecom Basis Reguar', sans-serif;
+    font-size: 20px;
     font-weight: 400;
     color: #000000;
     text-align: center;
@@ -495,6 +503,9 @@ footer {
     .place-face {
         font-size: 30px;
     }
+    .place-face-small {
+        font-size: 20px;
+    }
     .gif-ready-download-btn {
         background-size: 24px;
         background-position-x: 15px;
@@ -566,6 +577,9 @@ footer {
     }
     .place-face {
         font-size: 20px;
+    }
+    .place-face-small {
+        font-size: 15px;
     }
     .modal-no-photo-header {
         padding: 0px 20px;

@@ -9,6 +9,7 @@ var applyPhoto = Vue.component('apply-photo', ({
                 </div>
                 <div class="modal-footer">
                     <p class='place-face'>Помести овал лица в выделенную область</p>
+                    <p class='place-face-small'>Область захвата фото можно корректировать, ориентируясь на фиолетовые точки</p>
                     <button type='button' class="select-example-button apply-face-btn"@click="getCroppedImage" :disabled ='!template' >Применить</button>
                 </div>
             </div>
